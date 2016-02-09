@@ -9,4 +9,27 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+<<<<<<< HEAD
+=======
+  <servlet>
+    <description></description>
+    <display-name>Kayttaja</display-name>
+    <servlet-name>Kayttaja</servlet-name>
+    <servlet-class>servlet.Kayttaja</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Kayttaja</servlet-name>
+    <url-pattern>/Kayttaja</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>KayttajaServlet</display-name>
+    <servlet-name>KayttajaServlet</servlet-name>
+    <servlet-class>servlet.KayttajaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KayttajaServlet</servlet-name>
+    <url-pattern>/KayttajaServlet</url-pattern>
+  </servlet-mapping>
+>>>>>>> origin/master
 </web-app>
