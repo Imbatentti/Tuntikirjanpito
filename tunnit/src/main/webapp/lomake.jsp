@@ -11,14 +11,37 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  	<link href="/css/tyyli.css" rel="stylesheet">
+  	<link href="css/tyyli.css" rel="stylesheet">
 	<title>Tuntien syöttö lomake</title>
 </head>
 
 	<body>
 	
-		<div class="container">
-		
+	<div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Tuntikirjanpito</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Tuntien kirjaus</a></li>
+              <li><a href="#">Jotain</a></li>
+              <li><a href="#">Lisää jotain</a></li>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+	  
+	  
+
+      <div class="jumbotron">
+       
 			<form action="tunnit" method="post">
 			
 				<h2>Syötä tiedot:</h2>
@@ -37,6 +60,8 @@
 				</p>
 				
 			</form>
+      </div>
+		
 
 		</div>
 		

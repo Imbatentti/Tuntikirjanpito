@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +44,21 @@ public class KayttajaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(request.getParameter("action") != null && request.getParameter("action").equals("tunnit")) {
-			keraaJaLahetaTiedot(request, response);
+			try {
+				keraaJaLahetaTiedot(request, response);
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -53,7 +68,8 @@ public class KayttajaServlet extends HttpServlet {
 		
 	}
 	
-	private void keraaJaLahetaTiedot(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// Metodi kerää syötteen lomakkeelta ja lähettää sen DAOON. Sitten palaa syöttöön.
+	private void keraaJaLahetaTiedot(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		
 		String nimi = request.getParameter("nimi");
 		String tunnit = request.getParameter("tunnit");
@@ -66,8 +82,7 @@ public class KayttajaServlet extends HttpServlet {
 		KayttajaDAO kd = new KayttajaDAO();
 		kd.lisaa(syotettavatTunnit);
 		
-	}
-
-
-	
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
+	}	
 }
