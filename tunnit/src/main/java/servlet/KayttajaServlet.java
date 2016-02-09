@@ -63,7 +63,7 @@ public class KayttajaServlet extends HttpServlet {
 	}
 	
 	private void ohjaaSyottoon(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("lomake.jsp");
 		rd.forward(request, response);
 		
 	}
@@ -82,7 +82,7 @@ public class KayttajaServlet extends HttpServlet {
 		KayttajaDAO kd = new KayttajaDAO();
 		kd.lisaa(syotettavatTunnit);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("lomake.jsp");
 		rd.forward(request, response);
 	}	
 }

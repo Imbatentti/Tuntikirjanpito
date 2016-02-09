@@ -56,7 +56,7 @@
 					<input type="text" name="kuvaus" placeholder="Kuvaus"/>
 				</p>
 				<p>
-					<button type="button" class="btn btn-primary" type="submit">Lähetä</button>
+					<button type="submit" class="btn btn-primary">Lähetä</button>
 				</p>
 				
 			</form>
