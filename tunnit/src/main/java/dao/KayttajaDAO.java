@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,22 +9,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
+
+
 public class KayttajaDAO {
 	static Connection yhteys = null;
 
-	public static Connection avaaYhteys() {
-
-		// täytä kirjautumistiedot
-		String username = "projekti";
-		String password = "piHURn28m";
-		String url = "jdbc:mariadb://localhost/projekti";
+	public static Connection avaaYhteys() throws InstantiationException, IllegalAccessException, ClassNotFoundException, IOException, SQLException {
+		
+		Class.forName(DBConnectionProperties.getInstance().getProperty("driver")).newInstance();
+		//haetaan tiedot .properties tiedostosta
+		yhteys = DriverManager.getConnection(
+				DBConnectionProperties.getInstance().getProperty("url"), 
+				DBConnectionProperties.getInstance().getProperty("username"),
+				DBConnectionProperties.getInstance().getProperty("password"));
+		
 
 		try {
 			// YHTEYDEN AVAUS
 			// ajurin lataus
 			Class.forName("org.mariadb.jdbc.Driver").newInstance();
 			// avataan yhteys
-			yhteys = DriverManager.getConnection(url, username, password);
 
 		} catch (Exception e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
@@ -42,5 +47,7 @@ public class KayttajaDAO {
 					.println("Tietokantayhteys ei jostain syystä suostu menemään kiinni.");
 		}
 	}
+	
+	
 
 }
