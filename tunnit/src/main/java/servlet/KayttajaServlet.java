@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.KayttajaDAO;
 import bean.Tunnit;
+import bean.SyoteVali;
 
 
 /**
@@ -33,11 +34,9 @@ public class KayttajaServlet extends HttpServlet {
 		
 		if(request.getParameter("action") == null) {
 			ohjaaSyottoon(request, response);
-		}		
-		
+		}				
 	}
-		
-	
+			
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -60,7 +59,9 @@ public class KayttajaServlet extends HttpServlet {
 		String tunnit = request.getParameter("tunnit");
 		String kuvausVali = request.getParameter("kuvaus");
 		
-		SyoteVali syotettavatTunnit = new SyoteVali(nimi, tunnit, kuvausVali);
+		double tunnitLop = Double.parseDouble(tunnit);
+		
+		SyoteVali syotettavatTunnit = new SyoteVali(nimi, tunnitLop, kuvausVali);
 		
 		KayttajaDAO kd = new KayttajaDAO();
 		kd.lisaa(syotettavatTunnit);

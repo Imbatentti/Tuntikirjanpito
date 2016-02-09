@@ -9,18 +9,16 @@
 </head>
 <body>
 
-<form method="post">
-
-	<p class="tunnit">
+<form action="tunnit" method="post">
+	<p>
 		<input type="text" name="nimi" placeholder="Syötä nimesi"/>
 	</p>
-	<p class="tunnit">
+	<p>
 		<input type="text" name="tunnit" placeholder="Syötä tuntisi"/>
 	</p>
-	<p class="tunnit">
+	<p>
 		<input type="text" name="kuvaus" placeholder="Syötä kuvaus"/>
 	</p>
-
 </form>
 
 
