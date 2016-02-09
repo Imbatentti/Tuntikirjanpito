@@ -42,7 +42,7 @@
 
       <div class="jumbotron">
        
-			<form action="tunnit" method="post">
+			<form action="KayttajaServlet" method="post">
 			
 				<h2>Syötä tiedot:</h2>
 				

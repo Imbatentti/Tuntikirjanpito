@@ -43,7 +43,9 @@ public class KayttajaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(request.getParameter("action") != null && request.getParameter("action").equals("tunnit")) {
+		System.out.println("asd1");
+		//if(request.getParameter("action") != null && request.getParameter("action").equals("tunnit")) {
+			System.out.println("asd");
 			try {
 				keraaJaLahetaTiedot(request, response);
 			} catch (InstantiationException e) {
@@ -59,7 +61,7 @@ public class KayttajaServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		//}
 	}
 	
 	private void ohjaaSyottoon(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -76,7 +78,7 @@ public class KayttajaServlet extends HttpServlet {
 		String kuvausVali = request.getParameter("kuvaus");
 		
 		double tunnitLop = Double.parseDouble(tunnit);
-		
+		System.out.println("perkele");
 		SyoteVali syotettavatTunnit = new SyoteVali(nimi, tunnitLop, kuvausVali);
 		
 		KayttajaDAO kd = new KayttajaDAO();
