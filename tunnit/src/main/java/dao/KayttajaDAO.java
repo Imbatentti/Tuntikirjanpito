@@ -78,6 +78,7 @@ public class KayttajaDAO {
 
 		} 
 		finally {
+			System.out.println("finally, YEAAA");
 			suljeYhteys();
 		}
 
