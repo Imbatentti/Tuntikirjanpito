@@ -19,6 +19,11 @@
 	<p>
 		<input type="text" name="kuvaus" placeholder="Syötä kuvaus"/>
 	</p>
+	
+	<p>
+	<button type="submit">Lähetä</button>
+	</p>
+	
 </form>
 
 
