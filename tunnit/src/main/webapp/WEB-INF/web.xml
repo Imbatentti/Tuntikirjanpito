@@ -9,8 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-<<<<<<< HEAD
-=======
+
   <servlet>
     <description></description>
     <display-name>Kayttaja</display-name>
@@ -31,5 +30,5 @@
     <servlet-name>KayttajaServlet</servlet-name>
     <url-pattern>/KayttajaServlet</url-pattern>
   </servlet-mapping>
->>>>>>> origin/master
+
 </web-app>
