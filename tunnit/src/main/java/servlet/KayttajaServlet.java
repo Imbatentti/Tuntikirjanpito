@@ -35,8 +35,14 @@ public class KayttajaServlet extends HttpServlet {
 		
 		if(request.getParameter("action") == null) {
 			ohjaaSyottoon(request, response);
-		}				
-	}
+		}/*elseif(formi2) {
+			metodi2();
+		}elseif(formi3)	{
+			metodi3();
+		}elseif (formi4) {
+			metodi4();
+		}etc
+	*/}
 			
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
