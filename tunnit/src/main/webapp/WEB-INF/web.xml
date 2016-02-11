@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
   <servlet>
     <description></description>
     <display-name>Kayttaja</display-name>
@@ -30,5 +29,24 @@
     <servlet-name>KayttajaServlet</servlet-name>
     <url-pattern>/KayttajaServlet</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>AdminServlet</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>servlet.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/AdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>servlet.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
 </web-app>
