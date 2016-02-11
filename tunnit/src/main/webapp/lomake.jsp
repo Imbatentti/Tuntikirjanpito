@@ -42,8 +42,8 @@
 
       <div class="jumbotron">
        
-			<form action="KayttajaServlet" method="post">
-			
+			<form action="KayttajaServlet" method="post" name="tunnit">
+			<input type="hidden" name="action" value="tunnit"/>
 				<h2>Syötä tiedot:</h2>
 				
 				<p>
@@ -56,6 +56,7 @@
 					<input type="text" name="kuvaus" placeholder="Kuvaus"/>
 				</p>
 				<p>
+					
 					<button type="submit" class="btn btn-primary">Lähetä</button>
 				</p>
 				

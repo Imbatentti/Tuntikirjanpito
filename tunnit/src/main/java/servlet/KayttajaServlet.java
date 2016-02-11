@@ -49,9 +49,9 @@ public class KayttajaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("asd1");
-		//if(request.getParameter("action") != null && request.getParameter("action").equals("tunnit")) {
-			System.out.println("asd");
+		
+		if(request.getParameter("action") != null && request.getParameter("action").equals("tunnit")) {
+			System.out.println("nappitoimi");
 			try {
 				keraaJaLahetaTiedot(request, response);
 			} catch (InstantiationException e) {
@@ -67,7 +67,7 @@ public class KayttajaServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		//}
+		}
 	}
 	
 	private void ohjaaSyottoon(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
