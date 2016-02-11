@@ -57,24 +57,28 @@ public class KayttajaDAO {
 		String ktunnus = syotettavatTunnit.getNimi();
 		double tunnit = syotettavatTunnit.getTunnit();
 		String kuvaus = syotettavatTunnit.getKuvausVali();
-		int id;
+		
 		
 		try {
 			Connection yhteys = avaaYhteys();
 
+			int id;
+			
 			String sql1 = "select kayttaja_id from KAYTTAJAT where kayttajatunnus =(?);";
 			PreparedStatement lause1 = yhteys.prepareStatement(sql1);
 			lause1.setString(1, ktunnus);
 			ResultSet rs = lause1.executeQuery();
-			id = rs.getInt("kayttaja_id");
-				
 			
-			String sql2 = "insert into TUNNIT (tuntien_maara, kuvaus, kayttaja_id) values(?,?,?);";
-			PreparedStatement lause2 = yhteys.prepareStatement(sql2);
-			lause2.setDouble(1, tunnit);
-			lause2.setString(2, kuvaus);
-			lause2.setInt(3, id);
-			lause2.executeUpdate();
+			while (rs.next()){
+				id = rs.getInt("kayttaja_id");
+			
+				String sql2 = "insert into TUNNIT (tuntien_maara, kuvaus, kayttaja_id) values(?,?,?);";
+				PreparedStatement lause2 = yhteys.prepareStatement(sql2);
+				lause2.setDouble(1, tunnit);
+				lause2.setString(2, kuvaus);
+				lause2.setInt(3, id);
+				lause2.executeUpdate();
+			}
 
 		} 
 		finally {
