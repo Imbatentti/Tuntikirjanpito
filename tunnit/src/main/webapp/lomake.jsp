@@ -31,8 +31,8 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Tuntien kirjaus</a></li>
-              <li><a href="#">Jotain</a></li>
+              <li class="active"><a href="lomake.jsp">Tuntien kirjaus</a></li>
+              <li><a href="TulostusServlet">Näytä tunnit</a></li>
               <li><a href="#">Lisää jotain</a></li>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
