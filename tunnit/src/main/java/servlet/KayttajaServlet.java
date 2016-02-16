@@ -8,29 +8,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import dao.KayttajaDAO;
 import bean.Tunnit;
 import bean.SyoteVali;
 
-
-/**
- * Servlet implementation class KayttajaServlet
- */
 public class KayttajaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+	
     public KayttajaServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(request.getParameter("action") == null) {
@@ -44,9 +36,7 @@ public class KayttajaServlet extends HttpServlet {
 		}etc
 	*/}
 			
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
@@ -79,6 +69,7 @@ public class KayttajaServlet extends HttpServlet {
 	// Metodi kerää syötteen lomakkeelta ja lähettää sen DAOON. Sitten palaa syöttöön.
 	private void keraaJaLahetaTiedot(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		
+		
 		String nimi = request.getParameter("nimi");
 		String tunnit = request.getParameter("tunnit");
 		String kuvausVali = request.getParameter("kuvaus");
@@ -87,7 +78,7 @@ public class KayttajaServlet extends HttpServlet {
 		System.out.println("perkele");
 		SyoteVali syotettavatTunnit = new SyoteVali(nimi, tunnitLop, kuvausVali);
 		
-		KayttajaDAO kd = new KayttajaDAO();
+		KayttajaDAO kd = (KayttajaDAO)context.getBean("daoLuokka");
 		kd.lisaa(syotettavatTunnit);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("lomake.jsp");
