@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.KayttajaDAO;
-import bean.Tunnit;
 import bean.SyoteVali;
 
 

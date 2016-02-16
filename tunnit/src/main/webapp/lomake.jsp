@@ -34,6 +34,7 @@
               <li class="active"><a href="lomake.jsp">Tuntien kirjaus</a></li>
               <li><a href="TulostusServlet">N‰yt‰ tunnit</a></li>
               <li><a href="#">Lis‰‰ jotain</a></li>
+              </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>

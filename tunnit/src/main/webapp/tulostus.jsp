@@ -18,8 +18,6 @@
 <link href="css/tyyli.css" rel="stylesheet">
 <title>Tuntien näyttö</title>
 <style>
-
-
 table, td, th {
 	border: 1px solid black;
 }
@@ -42,8 +40,10 @@ table, td, th {
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="lomake.jsp">Tuntien kirjaus</a></li>
-						<li class="active"><a href="TulostusServlet.java">Näytä tunnit</a></li>
+						<li class="active"><a href="TulostusServlet.java">Näytä
+								tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
+					</ul>
 				</div>
 				<!--/.nav-collapse -->
 			</div>
@@ -71,5 +71,6 @@ table, td, th {
 				</table>
 			</form>
 		</div>
+	</div>
 </body>
 </html>
