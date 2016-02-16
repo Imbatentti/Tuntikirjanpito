@@ -2,6 +2,7 @@ package bean;
 
 public class Tunnit {
 
+	//Raikka
 	private double tuntimaara;
 	private String kuvaus;
 
