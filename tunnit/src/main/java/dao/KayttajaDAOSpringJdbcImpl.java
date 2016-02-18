@@ -28,7 +28,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 		jdbctemplate.update(sql, parametrit);
 		
-		String sql2 = "insert into TUNNIT (tuntien_maara, kuvaus, kayttaja_id) values(?,?,?);";
+		String sql2 = "insert into TUNNIT (tuntien_maara, kuvaus, kayttaja_id, pvm) values(?,?,?,NOW());";
 		Object[] parametrit2 = new Object[] { syotettavatTunnit.getTunnit(), syotettavatTunnit.getKuvausVali(), parametrit.clone() };
 		
 		jdbctemplate.update(sql2, parametrit2);
