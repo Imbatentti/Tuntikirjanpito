@@ -1,13 +1,13 @@
 package bean;
 
-import java.util.Calendar;
-import java.util.Date;
+//import java.util.Calendar;
+//import java.util.Date;
 
 public class Tunnit {
 
 	private double tuntimaara;
 	private String kuvaus;
-	private Date paiva;
+	//private Date paiva;
 	//private Calendar paiva;
 	
 
