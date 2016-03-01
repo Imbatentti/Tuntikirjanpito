@@ -1,8 +1,5 @@
 package dao;
 
-import java.awt.List;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.Calendar;
 
 import org.springframework.jdbc.core.JdbcTemplate;
