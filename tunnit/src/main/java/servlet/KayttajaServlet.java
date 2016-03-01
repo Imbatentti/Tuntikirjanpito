@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import dao.KayttajaDAO;
-import bean.Tunnit;
 import bean.SyoteVali;
 
 public class KayttajaServlet extends HttpServlet {

@@ -49,4 +49,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TulostusServlet</display-name>
+    <servlet-name>TulostusServlet</servlet-name>
+    <servlet-class>servlet.TulostusServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TulostusServlet</servlet-name>
+    <url-pattern>/TulostusServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
