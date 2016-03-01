@@ -14,7 +14,7 @@ public class SyoteValiRowMapper implements RowMapper<SyoteVali> {
 		sv.setKuvausVali(rs.getString("kuvaus"));
 		sv.setNimi(rs.getString("kayttajatunnus"));
 		sv.setTunnit(rs.getInt("tunnit"));
-		rs.getDate("pvm")
+		rs.getDate("pvm");
 		
 		return sv;
 		

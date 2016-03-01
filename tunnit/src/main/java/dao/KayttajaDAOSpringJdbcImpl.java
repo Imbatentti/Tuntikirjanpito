@@ -1,7 +1,9 @@
 package dao;
 
+import java.awt.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Calendar;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -24,12 +26,15 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
 	public void lisaa(SyoteVali syotettavatTunnit){
 		String sql = "select kayttaja_id from KAYTTAJAT where kayttajatunnus =(?);";
-		Object[] parametrit = new Object[] {syotettavatTunnit.getNimi() };
+		String StrKayttajaId = (String)getJdbctemplate().queryForObject(sql, new Object[] {syotettavatTunnit.getNimi() }, String.class);
 		
-		jdbctemplate.update(sql, parametrit);
+		int kayttajaId = Integer.parseInt(StrKayttajaId);
 		
-		String sql2 = "insert into TUNNIT (tuntien_maara, kuvaus, kayttaja_id, pvm) values(?,?,?,NOW());";
-		Object[] parametrit2 = new Object[] { syotettavatTunnit.getTunnit(), syotettavatTunnit.getKuvausVali(), parametrit.clone() };
+		Calendar kalenteri = Calendar.getInstance();
+		java.sql.Timestamp timestampObject = new java.sql.Timestamp(kalenteri.getTime().getTime());
+		
+		String sql2 = "insert into TUNNIT (tuntien_maara, paivamaara, kuvaus, kayttaja_id) values(?,?,?,?);";
+		Object[] parametrit2 = new Object[] { syotettavatTunnit.getTunnit(), timestampObject, syotettavatTunnit.getKuvausVali(), kayttajaId};
 		
 		jdbctemplate.update(sql2, parametrit2);
 		
