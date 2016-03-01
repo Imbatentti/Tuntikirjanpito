@@ -11,17 +11,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link href="css/tyyli.css" rel="stylesheet">
 <title>Tuntien n‰yttˆ</title>
-<style>
-table, td, th {
-	border: 1px solid black;
-}
-</style>
 </head>
 <body>
 	<div class="container">
@@ -53,20 +46,21 @@ table, td, th {
 
 		<div class="jumbotron">
 			<form action="TulostusServlet" method="get">
-				<table>
+				<h2>Kirjatut tunnit</h2>
+				<table class="table table-striped">
 					<tr>
-						<td>Tuntien m‰‰r‰</td>
-						<td>P‰iv‰m‰‰r‰</td>
-						<td>Kuvaus</td>
-						<td>K‰ytt‰j‰n ID</td>
+						<th>Tuntien m‰‰r‰</th>
+						<th>P‰iv‰m‰‰r‰</th>
+						<th>Kuvaus</th>
+						<th>K‰ytt‰j‰n ID</th>
 					</tr>
 					<c:forEach items="${tunnit}" var="tunnit">
-
 						<tr>
 							<td><c:out value="${tunnit.tuntimaara }" /></td>
 							<td><c:out value="${tunnit.paivamaara }" /></td>
 							<td><c:out value="${tunnit.kuvaus }" /></td>
 							<td><c:out value="${tunnit.kayttajaid }" /></td>
+						</tr>
 					</c:forEach>
 				</table>
 			</form>
