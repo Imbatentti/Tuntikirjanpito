@@ -1,16 +1,14 @@
 package dao;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import bean.SyoteVali;
 
-public class KayttajaDAO {
+public interface KayttajaDAO {
+	
+	public abstract void lisaa(SyoteVali syotettavatTunnit);
+	
+}
+	
+	/*
 	static Connection yhteys = null;
 
 	public static Connection avaaYhteys() throws InstantiationException,
@@ -88,4 +86,4 @@ public class KayttajaDAO {
 
 	}
 
-}
+}*/

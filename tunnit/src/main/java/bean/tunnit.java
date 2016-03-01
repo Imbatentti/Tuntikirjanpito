@@ -1,10 +1,15 @@
 package bean;
 
+//import java.util.Calendar;
+//import java.util.Date;
+
 public class Tunnit {
 
-	//Raikka
 	private double tuntimaara;
 	private String kuvaus;
+	//private Date paiva;
+	//private Calendar paiva;
+	
 
 	public Tunnit(double tuntimaara, String kuvaus) {
 		this.tuntimaara = tuntimaara;
