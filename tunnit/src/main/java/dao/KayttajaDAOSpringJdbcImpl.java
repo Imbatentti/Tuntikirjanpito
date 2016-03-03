@@ -1,11 +1,14 @@
 package dao;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import bean.SyoteVali;
+import bean.Tulostus;
+import bean.Tunnit;
 
 
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
@@ -35,6 +38,14 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 		jdbctemplate.update(sql2, parametrit2);
 		
+	}
+	
+	public List<Tulostus> haeKaikki() {
+		String sql = "select * from TUNNIT";
+		RowMapper<Tulostus> mapper = new TulostusRowMapper();
+		List<Tulostus> tulostus = jdbctemplate.query(sql, mapper);
+		
+		return tulostus;
 	}
 	
 }
