@@ -53,6 +53,7 @@
 						<th>Tunti ID</th>
 						<th>Kuvaus</th>
 						<th>K‰ytt‰j‰n ID</th>
+						<th>P‰iv‰m‰‰r‰</th>
 					</tr>
 					<c:forEach items="${tulostus}" var="tulostus">
 						<tr>
