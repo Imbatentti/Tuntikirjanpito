@@ -33,7 +33,6 @@ public class TulostusServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	List<Tulostus> tulostus = null;
-	System.out.println("asd");
 	
 	KayttajaDAO kd = (KayttajaDAO)context.getBean("daoLuokka");
 	tulostus = kd.haeKaikki();

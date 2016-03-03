@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import org.apache.commons.net.ntp.TimeStamp;
 import org.springframework.jdbc.core.RowMapper;
@@ -16,9 +17,14 @@ public class TulostusRowMapper implements RowMapper<Tulostus> {
 		tulostus.setKuvaus(rs.getString("kuvaus"));
 		tulostus.setTuntiId(rs.getInt("tunti_id"));
 		tulostus.setTuntiMaara(rs.getDouble("tuntien_maara"));
-		//tulostus.setPvm(rs.getTimestamp("paivamaara"));
+		
+		//formatoidaan sql timestamp stringiin
 		java.sql.Timestamp timestampObject = rs.getTimestamp("paivamaara");
-		String paivamaara = TimeStamp.toString(timestampObject);
+		if (timestampObject != null) {
+			String paivamaara = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(timestampObject);
+			tulostus.setPvm(paivamaara);
+		}
+		
 		return tulostus;
 	}
 	
