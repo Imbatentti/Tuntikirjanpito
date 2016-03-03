@@ -1,19 +1,15 @@
 package dao;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-
+import java.util.List;
 
 import bean.SyoteVali;
+import bean.Tulostus;
 
 public interface KayttajaDAO {
 	
 	public abstract void lisaa(SyoteVali syotettavatTunnit);
+	
+	public abstract List<Tulostus> haeKaikki();
 	
 }
 	

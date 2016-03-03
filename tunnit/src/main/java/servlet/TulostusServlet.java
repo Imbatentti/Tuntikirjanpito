@@ -7,11 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.sql.SQLException;
 import java.util.List;
 
+import bean.Tulostus;
 import bean.Tunnit;
-import dao.TuntiDAO;
+import dao.KayttajaDAO;
 
 /**
  * Servlet implementation class TulostusServlet
@@ -19,6 +22,8 @@ import dao.TuntiDAO;
 public class TulostusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+	
     public TulostusServlet() {
         super();
     }
@@ -27,22 +32,13 @@ public class TulostusServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	List<Tunnit> tunnit = null;
+	List<Tulostus> tulostus = null;
 	System.out.println("asd");
-	try{
-		TuntiDAO tDao = new TuntiDAO();
-		tunnit = tDao.haeKaikki();
-	}
-	catch (SQLException e){
-		e.printStackTrace();
-	} catch (InstantiationException e) {
-		e.printStackTrace();
-	} catch (IllegalAccessException e) {
-		e.printStackTrace();
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-	}
-	request.setAttribute("tunnit", tunnit);
+	
+	KayttajaDAO kd = (KayttajaDAO)context.getBean("daoLuokka");
+	tulostus = kd.haeKaikki();
+	
+	request.setAttribute("tulostus", tulostus);
 	
 	request.getRequestDispatcher("tulostus.jsp").forward(request, response);
 	

@@ -50,16 +50,17 @@
 				<table class="table table-striped">
 					<tr>
 						<th>Tuntien m‰‰r‰</th>
-						<th>P‰iv‰m‰‰r‰</th>
+						<th>Tunti ID</th>
 						<th>Kuvaus</th>
 						<th>K‰ytt‰j‰n ID</th>
 					</tr>
-					<c:forEach items="${tunnit}" var="tunnit">
+					<c:forEach items="${tulostus}" var="tulostus">
 						<tr>
-							<td><c:out value="${tunnit.tuntimaara }" /></td>
-							<td><c:out value="${tunnit.paivamaara }" /></td>
-							<td><c:out value="${tunnit.kuvaus }" /></td>
-							<td><c:out value="${tunnit.kayttajaid }" /></td>
+							<td><c:out value="${tulostus.tuntiMaara }" /></td>
+							<td><c:out value="${tulostus.tuntiId }" /></td>
+							<td><c:out value="${tulostus.kuvaus }" /></td>
+							<td><c:out value="${tulostus.kayttajaId }" /></td>
+							<td><c:out value="${tulostus.pvm }" /></td>
 						</tr>
 					</c:forEach>
 				</table>
