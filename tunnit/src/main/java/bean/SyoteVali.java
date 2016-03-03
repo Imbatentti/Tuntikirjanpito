@@ -1,8 +1,21 @@
 package bean;
 
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.DecimalMax;
+
+
 public class SyoteVali {
+	
+	@Size(max = 100)
+	@NotNull
 	private String nimi;
+	
+	@NotNull
+	@DecimalMax(value = "1000")
 	private double tunnit;
+	
+	@Size(max = 1000)
 	private String kuvausVali;
 	
 	public SyoteVali(String nimi, double tunnit, String kuvausVali) {
