@@ -1,0 +1,4 @@
+﻿-- tuhoa taulut
+DROP TABLE TUNNIT;
+DROP TABLE KAYTTAJAT;
+
