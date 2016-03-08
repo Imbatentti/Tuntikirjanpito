@@ -20,7 +20,7 @@ import dao.KayttajaDAO;
  * Servlet implementation class TulostusServlet
  */
 public class TulostusServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 145352L;
        
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 	
