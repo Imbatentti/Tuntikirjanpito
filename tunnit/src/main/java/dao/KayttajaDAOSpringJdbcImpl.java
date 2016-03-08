@@ -3,6 +3,7 @@ package dao;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,6 +16,7 @@ import bean.Tunnit;
 
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
+	@Inject
 	public DataSource dataSource;
 	public JdbcTemplate jdbcTemplate;
 
