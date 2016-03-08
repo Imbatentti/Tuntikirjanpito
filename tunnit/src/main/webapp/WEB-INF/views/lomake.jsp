@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -42,7 +46,7 @@
 	  
 
       <div class="jumbotron">
-       
+       <!--  
 			<form action="KayttajaServlet" method="post" name="tunnit">
 			<input type="hidden" name="action" value="tunnit"/>
 				<h2>Syötä tiedot:</h2>
@@ -61,7 +65,29 @@
 					<button type="submit" class="btn btn-primary">Lähetä</button>
 				</p>
 				
-			</form>
+			</form> -->
+			
+			<form:form modelAttribute="tunnit" method="post">
+				<fieldset>
+					<legend>Syötä tunnit</legend>
+					<p>
+						<form:label path="nimi">Nimi</form:label><br/>
+						<form:input path="nimi" />
+					</p>
+					<p>
+						<form:label path="tunnit">Tunnit</form:label><br/>
+						<form:input path="tunnit" />
+					</p>
+					<p>
+						<form:label path="kuvausVali">Kuvaus</form:label><br/>
+						<form:input path="kuvausVali
+						" />
+					</p>
+					<p>
+						<button type="submit">Lisää</button>
+					</p>
+				</fieldset>
+			</form:form>
       </div>
 		
 

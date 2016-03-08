@@ -2,12 +2,12 @@ package dao;
 
 import java.util.List;
 
-import bean.SyoteVali;
+import bean.Tunnit;
 import bean.Tulostus;
 
 public interface KayttajaDAO {
 	
-	public abstract void lisaa(SyoteVali syotettavatTunnit);
+	public abstract void lisaa(Tunnit tunnit);
 	
 	public abstract List<Tulostus> haeKaikki();
 	

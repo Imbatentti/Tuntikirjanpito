@@ -1,28 +1,57 @@
 package bean;
 
-//import java.util.Calendar;
-//import java.util.Date;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.DecimalMax;
+
 
 public class Tunnit {
-
-	private double tuntimaara;
-	private String kuvaus;
-	//private Date paiva;
-	//private Calendar paiva;
 	
-
-	public Tunnit(double tuntimaara, String kuvaus) {
-		this.tuntimaara = tuntimaara;
-		this.kuvaus = kuvaus;
+	@Size(max = 100)
+	@NotNull
+	private String nimi;
+	
+	@NotNull
+	@DecimalMax(value = "1000")
+	private double tunnit;
+	
+	@Size(max = 1000)
+	private String kuvausVali;
+	
+	public Tunnit(String nimi, double tunnit, String kuvausVali) {
+		this.nimi = nimi;
+		this.tunnit = tunnit;
+		this.kuvausVali = kuvausVali;
+	}
+	
+	public Tunnit(){
+		nimi = null;
+		tunnit =0;
+		kuvausVali = null;
 	}
 
-	public Tunnit() {
-		tuntimaara = 0;
-		kuvaus = null;
+	public String getNimi() {
+		return nimi;
 	}
 
-	public double getTuntimaara() {
-		return tuntimaara;
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
 	}
+
+	public double getTunnit() {
+		return tunnit;
+	}
+
+	public void setTunnit(double tunnit) {
+		this.tunnit = tunnit;
+	}
+
+	public String getKuvausVali() {
+		return kuvausVali;
+	}
+
+	public void setKuvausVali(String kuvausVali) {
+		this.kuvausVali = kuvausVali;
+	}
+	
 }
-
