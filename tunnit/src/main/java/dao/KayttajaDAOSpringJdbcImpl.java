@@ -3,6 +3,8 @@ package dao;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -13,16 +15,17 @@ import bean.Tunnit;
 
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
-	private JdbcTemplate jdbctemplate;
-	
-	
-	public JdbcTemplate getJdbctemplate() {
-		return jdbctemplate;
-	}
+	public DataSource dataSource;
+	public JdbcTemplate jdbcTemplate;
 
-	public void setJdbctemplate(JdbcTemplate jdbctemplate) {
-		this.jdbctemplate = jdbctemplate;
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+	
+	 public JdbcTemplate getJdbctemplate() {
+		return jdbcTemplate;
+	} 
 
 	public void lisaa(SyoteVali syotettavatTunnit){
 		String sql = "select kayttaja_id from KAYTTAJAT where kayttajatunnus =(?);";
@@ -36,14 +39,14 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		String sql2 = "insert into TUNNIT (tuntien_maara, paivamaara, kuvaus, kayttaja_id) values(?,?,?,?);";
 		Object[] parametrit2 = new Object[] { syotettavatTunnit.getTunnit(), timestampObject, syotettavatTunnit.getKuvausVali(), kayttajaId};
 		
-		jdbctemplate.update(sql2, parametrit2);
+		jdbcTemplate.update(sql2, parametrit2);
 		
 	}
 	
 	public List<Tulostus> haeKaikki() {
 		String sql = "select * from TUNNIT";
 		RowMapper<Tulostus> mapper = new TulostusRowMapper();
-		List<Tulostus> tulostus = jdbctemplate.query(sql, mapper);
+		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
 		
 		return tulostus;
 	}
