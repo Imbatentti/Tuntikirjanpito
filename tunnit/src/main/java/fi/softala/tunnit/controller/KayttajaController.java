@@ -1,5 +1,7 @@
 package fi.softala.tunnit.controller;
 
+import java.awt.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -42,9 +44,17 @@ public class KayttajaController {
 	@RequestMapping(value="uusitunti", method=RequestMethod.POST)
 	public String create( @ModelAttribute(value="tunnit") Tunnit tunnit) {
 		dao.lisaa(tunnit);
-		return "redirect:/tulostus";
+		return "redirect:/lomake";
 	}
 	
-	
+	//TUNTIEN TULOSTUS
+	@RequestMapping(value="tulostus", method=RequestMethod.GET)
+	public String getView(Model model){
+		List tulostus = (List) dao.haeKaikki();
+		model.addAttribute("tulostus", tulostus);
+		
+		return "hallitse/tulostus";
+		
+	}
 
 }

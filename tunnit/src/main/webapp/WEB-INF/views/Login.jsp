@@ -13,7 +13,7 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link href="css/tyyli.css" rel="stylesheet">
+<link href="css/login.css" rel="stylesheet">
 
 <title>kirjautuminen</title>
 </head>
@@ -23,8 +23,8 @@
     <div class="container">
       <form class="form-signin">
         <h2 class="form-signin-heading">Kirjaudu sisään tunnuksillasi</h2>
-        <label for="inputEmail" class="sr-only">Maili vai tunnus ???</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Maili vai tunnus ???" required autofocus>
+        <label for="inputEmail" class="sr-only">Käyttäjätunnus</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Käyttäjätunnus" required autofocus>
         <label for="inputPassword" class="sr-only">Salasana</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Salasana" required>
         <div class="checkbox">
