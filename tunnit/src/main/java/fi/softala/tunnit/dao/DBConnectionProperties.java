@@ -1,4 +1,4 @@
-package dao;
+package fi.softala.tunnit.dao;
 
 import java.io.IOException;
 import java.io.InputStream;

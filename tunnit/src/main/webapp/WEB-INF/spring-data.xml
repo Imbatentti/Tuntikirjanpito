@@ -7,10 +7,10 @@
 	http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:property-placeholder location="db_connection.properties"/>
+	<context:property-placeholder location="classpath*:/db_connection.properties" />
 	
-	<bean id="daoLuokka" class="dao.KayttajaDAOSpringJdbcImpl">
-		<property name="jdbctemplate" ref="jdbcTemplate" />
+	<bean id="daoLuokka" class="fi.softala.tunnit.dao.KayttajaDAOSpringJdbcImpl">
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"

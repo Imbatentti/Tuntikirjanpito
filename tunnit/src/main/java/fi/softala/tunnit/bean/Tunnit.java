@@ -1,11 +1,11 @@
-package bean;
+package fi.softala.tunnit.bean;
 
 import javax.validation.constraints.Size;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.DecimalMax;
 
 
-public class SyoteVali {
+public class Tunnit {
 	
 	@Size(max = 100)
 	@NotNull
@@ -18,13 +18,13 @@ public class SyoteVali {
 	@Size(max = 1000)
 	private String kuvausVali;
 	
-	public SyoteVali(String nimi, double tunnit, String kuvausVali) {
+	public Tunnit(String nimi, double tunnit, String kuvausVali) {
 		this.nimi = nimi;
 		this.tunnit = tunnit;
 		this.kuvausVali = kuvausVali;
 	}
 	
-	public SyoteVali(){
+	public Tunnit(){
 		nimi = null;
 		tunnit =0;
 		kuvausVali = null;
@@ -53,5 +53,7 @@ public class SyoteVali {
 	public void setKuvausVali(String kuvausVali) {
 		this.kuvausVali = kuvausVali;
 	}
+
+
 	
 }

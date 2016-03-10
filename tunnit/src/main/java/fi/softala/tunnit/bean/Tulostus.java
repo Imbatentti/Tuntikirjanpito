@@ -1,4 +1,4 @@
-package bean;
+package fi.softala.tunnit.bean;
 
 public class Tulostus {
 

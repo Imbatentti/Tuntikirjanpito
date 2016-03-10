@@ -1,20 +1,21 @@
-package dao;
+package fi.softala.tunnit.dao;
 
 import java.util.Calendar;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import bean.SyoteVali;
-import bean.Tulostus;
-import bean.Tunnit;
+import fi.softala.tunnit.bean.Tulostus;
+import fi.softala.tunnit.bean.Tunnit;
 
 
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
+	@Inject
 	public DataSource dataSource;
 	public JdbcTemplate jdbcTemplate;
 
@@ -27,9 +28,9 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		return jdbcTemplate;
 	} 
 
-	public void lisaa(SyoteVali syotettavatTunnit){
+	public void lisaa(Tunnit tunnit){
 		String sql = "select kayttaja_id from KAYTTAJAT where kayttajatunnus =(?);";
-		String StrKayttajaId = (String)getJdbctemplate().queryForObject(sql, new Object[] {syotettavatTunnit.getNimi() }, String.class);
+		String StrKayttajaId = (String)getJdbctemplate().queryForObject(sql, new Object[] {tunnit.getNimi() }, String.class);
 		
 		int kayttajaId = Integer.parseInt(StrKayttajaId);
 		
@@ -37,7 +38,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		java.sql.Timestamp timestampObject = new java.sql.Timestamp(kalenteri.getTime().getTime());
 		
 		String sql2 = "insert into TUNNIT (tuntien_maara, paivamaara, kuvaus, kayttaja_id) values(?,?,?,?);";
-		Object[] parametrit2 = new Object[] { syotettavatTunnit.getTunnit(), timestampObject, syotettavatTunnit.getKuvausVali(), kayttajaId};
+		Object[] parametrit2 = new Object[] { tunnit.getTunnit(), timestampObject, tunnit.getKuvausVali(), kayttajaId};
 		
 		jdbcTemplate.update(sql2, parametrit2);
 		

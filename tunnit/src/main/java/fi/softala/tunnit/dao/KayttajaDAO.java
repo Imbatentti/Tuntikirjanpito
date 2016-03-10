@@ -1,13 +1,13 @@
-package dao;
+package fi.softala.tunnit.dao;
 
 import java.util.List;
 
-import bean.SyoteVali;
-import bean.Tulostus;
+import fi.softala.tunnit.bean.Tulostus;
+import fi.softala.tunnit.bean.Tunnit;
 
 public interface KayttajaDAO {
 	
-	public abstract void lisaa(SyoteVali syotettavatTunnit);
+	public abstract void lisaa(Tunnit tunnit);
 	
 	public abstract List<Tulostus> haeKaikki();
 	

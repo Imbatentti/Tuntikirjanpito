@@ -1,16 +1,16 @@
-package dao;
+package fi.softala.tunnit.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import bean.SyoteVali;
+import fi.softala.tunnit.bean.Tunnit;
 
-public class SyoteValiRowMapper implements RowMapper<SyoteVali> {
+public class SyoteValiRowMapper implements RowMapper<Tunnit> {
 
-	public SyoteVali mapRow(ResultSet rs, int rowNum) throws SQLException {
-		SyoteVali sv = new SyoteVali();
+	public Tunnit mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Tunnit sv = new Tunnit();
 		sv.setKuvausVali(rs.getString("kuvaus"));
 		sv.setNimi(rs.getString("kayttajatunnus"));
 		sv.setTunnit(rs.getInt("tunnit"));

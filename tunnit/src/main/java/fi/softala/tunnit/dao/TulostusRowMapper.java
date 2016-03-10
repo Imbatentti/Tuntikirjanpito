@@ -1,13 +1,12 @@
-package dao;
+package fi.softala.tunnit.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
-import org.apache.commons.net.ntp.TimeStamp;
 import org.springframework.jdbc.core.RowMapper;
 
-import bean.Tulostus;
+import fi.softala.tunnit.bean.Tulostus;
 
 public class TulostusRowMapper implements RowMapper<Tulostus> {
 
