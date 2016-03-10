@@ -78,8 +78,7 @@
 					</p>
 					<p>
 						<form:label path="kuvausVali">Kuvaus</form:label><br/>
-						<form:input path="kuvausVali
-						" />
+						<form:input path="kuvausVali"/>
 					</p>
 					<p>
 						<button type="submit">Lisää</button>
