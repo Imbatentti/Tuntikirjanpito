@@ -53,7 +53,7 @@ public class KayttajaController {
 		List tulostus = (List) dao.haeKaikki();
 		model.addAttribute("tulostus", tulostus);
 		
-		return "hallitse/tulostus";
+		return "sisalto/tulostus";
 		
 	}
 
