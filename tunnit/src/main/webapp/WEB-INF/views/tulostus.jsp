@@ -1,20 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html;charset=UTF-8"%>
+<%@page pageEncoding="UTF-8"%>
+<%@ page session="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
-<html lang="fi">
+<html>
 <head>
 <meta name="description" content="Tulostussivu">
 <meta name="author" content="Team Blue / Softala 1">
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link href="css/tyyli.css" rel="stylesheet">
-<title>Tuntien n‰yttˆ</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="../resources/styles/tyyli.css">
+<title>Tuntien n√§ytt√∂</title>
 </head>
 <body>
 	<div class="container">
@@ -32,10 +35,10 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="lomake.jsp">Tuntien kirjaus</a></li>
-						<li class="active"><a href="TulostusServlet.java">N‰yt‰
+						<li><a href="../hallitse/uusitunti">Tuntien kirjaus</a></li>
+						<li class="active"><a href="TulostusServlet.java">N√§yt√§
 								tunnit</a></li>
-						<li><a href="#">Lis‰‰ jotain</a></li>
+						<li><a href="#">Lis√§√§ jotain</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -49,11 +52,11 @@
 				<h2>Kirjatut tunnit</h2>
 				<table class="table table-striped">
 					<tr>
-						<th>Tuntien m‰‰r‰</th>
+						<th>Tuntien m√§√§r√§</th>
 						<th>Tunti ID</th>
 						<th>Kuvaus</th>
-						<th>K‰ytt‰j‰n ID</th>
-						<th>P‰iv‰m‰‰r‰</th>
+						<th>K√§ytt√§j√§n ID</th>
+						<th>P√§iv√§m√§√§r√§</th>
 					</tr>
 					<c:forEach items="${tulostus}" var="tulostus">
 						<tr>
