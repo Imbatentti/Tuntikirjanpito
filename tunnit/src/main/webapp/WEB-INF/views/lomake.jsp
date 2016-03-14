@@ -33,7 +33,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="lomake.jsp">Tuntien kirjaus</a></li>
+              <li class="active"><a href="nayta/tulostus">Tuntien kirjaus</a></li>
               <li><a href="hallitse/tulostus">Näytä tunnit</a></li>
               <li><a href="#">Lisää jotain</a></li>
               </ul>
@@ -87,7 +87,7 @@
 			</form:form>
       </div>
 		
-
+		<a href="nayta/tulostus">Näytä tunnit</a>
 		</div>
 		
 	</body>

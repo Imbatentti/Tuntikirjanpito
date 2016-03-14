@@ -1,17 +1,15 @@
 package fi.softala.tunnit.controller;
 
-import java.awt.List;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import fi.softala.tunnit.bean.Tunnit;
+
 import fi.softala.tunnit.dao.KayttajaDAO;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -47,14 +45,6 @@ public class KayttajaController {
 		return "redirect:/lomake";
 	}
 	
-	//TUNTIEN TULOSTUS
-	@RequestMapping(value="tulostus", method=RequestMethod.GET)
-	public String getView(Model model){
-		List tulostus = (List) dao.haeKaikki();
-		model.addAttribute("tulostus", tulostus);
-		
-		return "sisalto/tulostus";
-		
-	}
+	
 
 }

@@ -19,10 +19,11 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
-
+	
+	 <mvc:default-servlet-handler/>
+	
 	<!-- Forwards requests to the "/" resource to the "welcome" view -->
 	<mvc:view-controller path="/" view-name="aloitus" />
 	
