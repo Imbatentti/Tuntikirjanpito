@@ -42,7 +42,7 @@ public class KayttajaController {
 	@RequestMapping(value="uusitunti", method=RequestMethod.POST)
 	public String create( @ModelAttribute(value="tunnit") Tunnit tunnit) {
 		dao.lisaa(tunnit);
-		return "redirect:/lomake";
+		return "redirect:../nayta/tulostus";
 	}
 	
 	

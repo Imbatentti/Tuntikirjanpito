@@ -44,6 +44,11 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 	}
 	
+	public void poista(Tunnit poistettava){
+		String sql = "delete from TUNNIT where tunti_id =(?);";
+		jdbcTemplate.update(sql, poistettava);
+	}
+	
 	public List<Tulostus> haeKaikki() {
 		String sql = "select * from TUNNIT";
 		RowMapper<Tulostus> mapper = new TulostusRowMapper();
@@ -51,20 +56,4 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 		return tulostus;
 	}
-	
 }
-/*
-String sql1 = "select kayttaja_id from KAYTTAJAT where kayttajatunnus =(?);";
-PreparedStatement lause1 = yhteys.prepareStatement(sql1);
-lause1.setString(1, ktunnus);
-ResultSet rs = lause1.executeQuery();
-
-while (rs.next()){
-	id = rs.getInt("kayttaja_id");
-
-	String sql2 = "insert into TUNNIT (tuntien_maara, kuvaus, kayttaja_id) values(?,?,?);";
-	PreparedStatement lause2 = yhteys.prepareStatement(sql2);
-	lause2.setDouble(1, tunnit);
-	lause2.setString(2, kuvaus);
-	lause2.setInt(3, id);
-	lause2.executeUpdate(); */
