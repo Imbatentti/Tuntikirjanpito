@@ -10,6 +10,8 @@ public interface KayttajaDAO {
 	public abstract void lisaa(Tunnit tunnit);
 	
 	public abstract List<Tulostus> haeKaikki();
+
+	public abstract void poista(Tunnit poistettava);
 	
 }
 	
