@@ -43,7 +43,7 @@ public class TulostusController {
 	@RequestMapping(value="poisto", method=RequestMethod.POST)
 	public String removeAd(@RequestParam("poistettava") Tunnit poistettava) {
 		dao.poista(poistettava);
-		
+		System.out.println("DO POST PERILLÄ");
 		return "redirect:/tulostus";
 	}
 		

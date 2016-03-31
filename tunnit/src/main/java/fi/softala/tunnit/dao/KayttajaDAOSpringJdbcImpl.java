@@ -48,7 +48,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	public void poista(Tunnit poistettava){
 		System.out.println("POISTO PYYNTO PERILLA");
 		Object[] poistettavaID = {poistettava};
-		String sql = "delete from TUNNIT where tunti_id =(?);";
+		String sql = "delete from TUNNIT where tunti_id = ?;";
 		int rows = jdbcTemplate.update(sql, poistettavaID);
 		System.out.println(rows + " row(s) deleted.");
 	}
