@@ -67,7 +67,7 @@
 							<td><c:out value="${tulostus.kayttajaId }" /></td>
 							<td><c:out value="${tulostus.pvm }" /></td>
 							<td>
-								<a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
+								<a href="<c:url var="deleteUrl" value="poisto"/>">Poista</a>
 								<form id="${formId }" action="${deleteUrl}" method="post">
 									<input id="poistettava" name="poistettava" 
 									type="hidden" value="${tulostus.tuntiId }"/>
