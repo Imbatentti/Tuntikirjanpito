@@ -27,6 +27,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	 public JdbcTemplate getJdbctemplate() {
 		return jdbcTemplate;
 	} 
+	 
 
 	public void lisaa(Tunnit tunnit){
 		String sql = "select kayttaja_id from KAYTTAJAT where kayttajatunnus =(?);";
@@ -45,8 +46,11 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public void poista(Tunnit poistettava){
+		System.out.println("POISTO PYYNTO PERILLA");
+		Object[] poistettavaID = {poistettava};
 		String sql = "delete from TUNNIT where tunti_id =(?);";
-		jdbcTemplate.update(sql, poistettava);
+		int rows = jdbcTemplate.update(sql, poistettavaID);
+		System.out.println(rows + " row(s) deleted.");
 	}
 	
 	public List<Tulostus> haeKaikki() {
