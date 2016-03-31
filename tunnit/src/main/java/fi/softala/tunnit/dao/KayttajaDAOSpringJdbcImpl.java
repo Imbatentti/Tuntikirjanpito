@@ -9,7 +9,9 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
+import fi.softala.tunnit.bean.Kayttaja;
 import fi.softala.tunnit.bean.Tulostus;
 import fi.softala.tunnit.bean.Tunnit;
 
@@ -61,4 +63,15 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 		return tulostus;
 	}
+	
+	public void rekisteroi(Kayttaja kayttaja) {
+        
+        StandardPasswordEncoder spe = new StandardPasswordEncoder();    
+        String salasanaKryptattuna = spe.encode(kayttaja.getSalasana());
+        
+        String sql = "insert into KAYTTAJA (kayttajatunnus, email, etunimi, sukunumi, salasana) values(?,?,?,?,?);";
+        Object[] parametrit = new Object[] { kayttaja.getKayttajatunnus(), kayttaja.getEmail(), kayttaja.getEtunimi(), kayttaja.getSukunimi(), salasanaKryptattuna};
+        
+        jdbcTemplate.update(sql, parametrit);
+    }
 }

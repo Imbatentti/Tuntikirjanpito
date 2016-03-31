@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -24,7 +25,7 @@
      		<fieldset>
      			<table>
      				<tr><td>Käyttäjätunnus:</td><td><input type='text' name='j_username' value=''></td></tr>
-     				<tr><td>Salasana:</td><td><input type='text' name='j_password' value=''></td></tr>
+     				<tr><td>Salasana:</td><td><input type='password' name='j_password' /></td></tr>
      				<tr><td>&nbsp;</td><td><button type="submit">Kirjaudu</button></td></tr>
      			</table>
      		</fieldset>
