@@ -1,5 +1,6 @@
 package fi.softala.tunnit.dao;
 
+import java.sql.Types;
 import java.util.Calendar;
 import java.util.List;
 
@@ -45,8 +46,13 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public void poista(Tunnit poistettava){
-		String sql = "delete from TUNNIT where tunti_id =(?);";
-		jdbcTemplate.update(sql, poistettava);
+		Object[] poistettavaID = {poistettava};
+		String deleteSql = "delete from TUNNIT where tunti_id =(?);";
+		int[] types = {Types.BIGINT};
+		
+		int rows = jdbcTemplate.update(deleteSql, poistettavaID, types);
+		System.out.println(rows + " row(s) deleted.");
+	
 	}
 	
 	public List<Tulostus> haeKaikki() {

@@ -70,7 +70,7 @@
 								<a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
 								<form id="${formId }" action="${deleteUrl}" method="post">
 									<input id="poistettava" name="poistettava" 
-									type="hidden" value="${tulostus.tuntiId }"/>
+									type="hidden" value="${tulostus.tuntiId}"/>
 								</form>
 						</tr>
 					</c:forEach>
