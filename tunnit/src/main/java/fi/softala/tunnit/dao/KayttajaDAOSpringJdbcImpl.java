@@ -52,7 +52,6 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 		int rows = jdbcTemplate.update(deleteSql, poistettavaID, types);
 		System.out.println(rows + " row(s) deleted.");
-	
 	}
 	
 	public List<Tulostus> haeKaikki() {
