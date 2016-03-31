@@ -1,3 +1,5 @@
-﻿-- tyhjentaa taulut, muttei tuhoa niitä
+-- tyhjentaa taulut, muttei tuhoa niitä
 DELETE FROM KAYTTAJAT;
 DELETE FROM TUNNIT;
+DELETE FROM OIKEUDET;
+DELETE FROM KAYTTAJAOIKEUDET;
