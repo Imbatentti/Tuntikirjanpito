@@ -9,30 +9,34 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security.xsd">
-	
+
 	<!-- SPRING MVC MÄÄRITYKSET -->
-	
+
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<context:component-scan base-package="fi.softala.tunnit" />
 	<mvc:annotation-driven />
-	
-	<!-- Etusivun määritys -->
-	<mvc:view-controller path="/" view-name="aloitus" />
-	
+
+	<!-- Etusivun määritys --> 
+	<mvc:view-controller path="/" view-name="login" />
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
+
 	
-	<!--  DATA SOURCE -->
-	
+
+
+	<!-- DATA SOURCE -->
+
 	<context:property-placeholder location="classpath*:/db_connection.properties" />
 	
 	<bean id="daoLuokka" class="fi.softala.tunnit.dao.KayttajaDAOSpringJdbcImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${db.driver}" />
@@ -40,38 +44,39 @@
 		<property name="username" value="${db.username}" />
 		<property name="password" value="${db.password}" />
 	</bean>
-	
+
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-			<property name="dataSource" ref="dataSource"/>
-		</bean>
-	
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<!-- SPRING SECURITY -->
-	
+
 	<sec:http auto-config="true" use-expressions="true">
-	
+
 		<sec:intercept-url pattern="/sisalto/admin/**" access="hasRole('admin')" />
 		<sec:intercept-url pattern="/sisalto/*" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/*" access="permitAll" />
-		
-		<sec:form-login
-			login-page="/Login"
-			default-target-url="/sisalto/lomake"
-			authentication-failure-url="/loginfail" />
-		
-		<sec:logout logout-success-url="/logout"/>
-	
-	</sec:http>
 
+		<sec:form-login login-page="/login"
+		default-target-url="/sisalto/lomake"
+		authentication-failure-url="/loginfail" />
+
+		<sec:logout logout-success-url="/logout" />
+
+	</sec:http>
+	
+	<bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+	
 	<sec:authentication-manager>
 		<sec:authentication-provider>
 			<sec:password-encoder ref="encoder" />
 			<sec:jdbc-user-service data-source-ref="dataSource"
-			users-by-username-query="SELECT kayttajatunnus, salasana from KAYTTAJAT where kayttajatunnus=? "
-			authorities-by-username-query="SELECT u.kayttajatunnus, a.rooli FROM KAYTTAJAT u JOIN KAYTTAJAOIKEUDET ua ON (u.id = ua.KAYTTAJAT_kayttaja_id) JOIN OIKEUDET a ON (a.oikeudet_id = ua.oikeus_id) WHERE u.kayttajatunnus = ?"
-			/>
+				users-by-username-query="SELECT kayttajatunnus, salasana from KAYTTAJAT where kayttajatunnus=? "
+				authorities-by-username-query="SELECT u.kayttajatunnus, a.rooli FROM KAYTTAJAT u JOIN KAYTTAJAOIKEUDET ua ON (u.id = ua.KAYTTAJAT_kayttaja_id) JOIN OIKEUDET a ON (a.oikeudet_id = ua.oikeus_id) WHERE u.kayttajatunnus = ?" />
 		</sec:authentication-provider>
 	</sec:authentication-manager>
 
-	<sec:global-method-security pre-post-annotations="enabled" />
-	
+	<sec:global-method-security
+		pre-post-annotations="enabled" />
+
 </beans>

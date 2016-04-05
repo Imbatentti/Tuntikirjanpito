@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
+
 public class Kryptaaja {
 
 	/**

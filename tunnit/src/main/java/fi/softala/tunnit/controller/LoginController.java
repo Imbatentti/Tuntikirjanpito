@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping (value="/kirjaudu")
 public class LoginController {
 
-	@RequestMapping(value="/Login", method = RequestMethod.GET)
+	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login(Model model) {
 		System.out.println("login");
-		return "Login";
+		return "login";
 	}
 
 	@RequestMapping(value="/loginfail", method = RequestMethod.GET)
