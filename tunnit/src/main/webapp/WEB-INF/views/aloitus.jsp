@@ -8,7 +8,7 @@
 <title>Ladataan sivua</title>
 </head>
 <body>
-<c:redirect url="hallitse/uusitunti"/>
+<c:redirect url="kirjaudu/Login"/>
 
 </body>
 </html>
