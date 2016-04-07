@@ -22,4 +22,12 @@ public class LoginController {
 		return "Login";
 	}
 	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(Model model) {
+
+		model.addAttribute("loggedout", "true");
+		return "Login";
+ 
+	}
+	
 }
