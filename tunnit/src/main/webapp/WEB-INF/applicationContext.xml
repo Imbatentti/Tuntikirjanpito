@@ -52,20 +52,20 @@
 
 	<sec:http auto-config="true" use-expressions="true">
 
-		<sec:intercept-url pattern="/sisalto/admin/**"
-			access="hasRole('admin')" />
+		<sec:intercept-url pattern="/sisalto/admin/**" access="hasRole('admin')" />
 		<sec:intercept-url pattern="/sisalto/*" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/*" access="permitAll" />
 
-		<sec:form-login login-page="/loginpage"
-			default-target-url="/sisalto/lomake" authentication-failure-url="/loginfail" />
-
+		<sec:form-login 
+			login-page="/loginpage"
+			default-target-url="/sisalto/lomake" 
+			authentication-failure-url="/loginfail" />
+			
 		<sec:logout logout-success-url="/logout" />
 
 	</sec:http>
 
-	<bean id="encoder"
-		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+	<bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
 	<sec:authentication-manager>
 		<sec:authentication-provider>
@@ -76,7 +76,6 @@
 		</sec:authentication-provider>
 	</sec:authentication-manager>
 
-	<sec:global-method-security
-		pre-post-annotations="enabled" />
+	<sec:global-method-security pre-post-annotations="enabled" />
 
 </beans>
