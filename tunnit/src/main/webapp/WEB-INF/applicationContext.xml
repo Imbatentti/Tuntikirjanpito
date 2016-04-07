@@ -16,8 +16,8 @@
 	<context:component-scan base-package="fi.softala.tunnit" />
 	<mvc:annotation-driven />
 
-	<!-- Etusivun määritys --> 
-	<mvc:view-controller path="/" view-name="login" />
+	<!-- Etusivun määritys -->
+	<mvc:view-controller path="/" view-name="Login" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -28,10 +28,11 @@
 	<!-- DATA SOURCE -->
 
 	<context:property-placeholder location="classpath*:/db_connection.properties" />
-	
+
 	<bean id="daoLuokka" class="fi.softala.tunnit.dao.KayttajaDAOSpringJdbcImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -49,20 +50,21 @@
 
 	<sec:http auto-config="true" use-expressions="true">
 
-		<sec:intercept-url pattern="/sisalto/admin/**" access="hasRole('admin')" />
+		<sec:intercept-url pattern="/sisalto/admin/**"
+			access="hasRole('admin')" />
 		<sec:intercept-url pattern="/sisalto/*" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/*" access="permitAll" />
 
-		<sec:form-login login-page="/login"
-		default-target-url="/sisalto/lomake"
-		authentication-failure-url="/loginfail" />
+		<sec:form-login login-page="/loginpage"
+			default-target-url="/sisalto/lomake" authentication-failure-url="/loginfail" />
 
 		<sec:logout logout-success-url="/logout" />
 
 	</sec:http>
-	
-	<bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
-	
+
+	<bean id="encoder"
+		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+
 	<sec:authentication-manager>
 		<sec:authentication-provider>
 			<sec:password-encoder ref="encoder" />

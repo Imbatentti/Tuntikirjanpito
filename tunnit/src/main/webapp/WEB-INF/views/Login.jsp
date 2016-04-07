@@ -21,7 +21,7 @@
 
 	<div class="container">
      
-     	<form action="j:spring_security_check" method="post">
+     	<form action="j_spring_security_check" method="post">
      		<fieldset>
      			<table>
      				<tr><td>Käyttäjätunnus:</td><td><input type='text' name='j_username' value=''></td></tr>
