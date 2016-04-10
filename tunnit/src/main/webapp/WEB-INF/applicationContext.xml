@@ -71,7 +71,7 @@
 		<sec:authentication-provider>
 			<sec:password-encoder ref="encoder" />
 			<sec:jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="SELECT kayttajatunnus, salasana from KAYTTAJAT where kayttajatunnus=? "
+				users-by-username-query="SELECT kayttajatunnus, salasana, enabled from KAYTTAJAT where kayttajatunnus=? and enabled =1"
 				authorities-by-username-query="SELECT u.kayttajatunnus, a.rooli FROM KAYTTAJAT u JOIN KAYTTAJAOIKEUDET ua ON (u.kayttaja_id = ua.kayttajan_id) JOIN OIKEUDET a ON (a.oikeudet_id = ua.oikeus_id) WHERE u.kayttajatunnus = ?" />
 		</sec:authentication-provider>
 	</sec:authentication-manager>

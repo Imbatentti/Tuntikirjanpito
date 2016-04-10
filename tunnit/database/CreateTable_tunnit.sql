@@ -2,6 +2,7 @@ CREATE TABLE KAYTTAJAT (
 kayttaja_id int NOT NULL AUTO_INCREMENT,
 kayttajatunnus varchar(50) NOT NULL,
 email varchar(50) NOT NULL,
+enabled tinyint NOT NULL,
 etunimi varchar(50) NOT NULL,
 sukunimi varchar(50) NOT NULL,
 salasana varchar(500) NOT NULL,
