@@ -17,7 +17,7 @@ public class LoginController {
 
 	@RequestMapping(value="/loginfail", method = RequestMethod.GET)
 	public String loginerror(Model model) {
-		
+		System.out.println("loginfail");
 		model.addAttribute("loginerror", "true");
 		return "Login";
 	}
