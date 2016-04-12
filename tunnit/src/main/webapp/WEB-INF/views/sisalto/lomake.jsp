@@ -90,8 +90,8 @@
 							<td><input type="text" name="tunnit"></td>
 						</tr>
 						<tr>
-							<td>Kuvas</td>
-							<td><input type="text" name="kuvasVali"></td>
+							<td>Kuvaus</td>
+							<td><input type="text" name="kuvausVali"></td>
 						</tr>
 						<tr>
 							<td></td>
