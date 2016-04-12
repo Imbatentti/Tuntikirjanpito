@@ -31,15 +31,18 @@ public class KayttajaController {
 	@RequestMapping(value="uusitunti", method=RequestMethod.GET)
 	public String getCreateForm(Model model){
 		Tunnit uudetTunnit =  new Tunnit();
+
+		System.out.println("tulostus");
+
 		model.addAttribute("tunnit", uudetTunnit);
-		return "lomake";
+		return "sisalto/lomake";
 	}
 	
 	//FORMIN VASTAANOTTO
 	@RequestMapping(value="uusitunti", method=RequestMethod.POST)
 	public String create( @ModelAttribute(value="tunnit") Tunnit tunnit) {
 		dao.lisaa(tunnit);
-		return "redirect:../nayta/tulostus";
+		return "sisalto/tulostus";
 	}
 	
 	

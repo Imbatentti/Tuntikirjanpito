@@ -51,7 +51,7 @@
 
 
 
-		<div class="jumbotron">
+		<!-- <div class="jumbotron">
 			  
 			<form action="KayttajaController" method="post" name="tunnit">
 			<input type="hidden" name="action" value="tunnit"/>
@@ -71,10 +71,36 @@
 					<button type="submit" class="btn btn-primary">Lähetä</button>
 				</p>
 				
+
+			</form> -->
+			
+			
+
+
+			<form modelAttribute="tunnit" method="post">
+
+				<fieldset>
+					<table>
+						<tr>
+							<td>Nimi</td>
+							<td><input type="text" name="nimi"></td>
+						</tr>
+						<tr>
+							<td>Tunnit</td>
+							<td><input type="text" name="tunnit"></td>
+						</tr>
+						<tr>
+							<td>Kuvas</td>
+							<td><input type="text" name="kuvasVali"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><button type="submit">Lisata tunnit</button>
+					</table>
+
+				</fieldset>
 			</form> 
 		</div>
-
-	</div>
 
 </body>
 
