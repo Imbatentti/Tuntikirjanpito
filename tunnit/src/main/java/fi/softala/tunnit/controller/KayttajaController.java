@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping (value="/hallitse")
+@RequestMapping (value="/sisalto")
 public class KayttajaController {
 
 	@Inject
@@ -32,8 +32,11 @@ public class KayttajaController {
 	public String getCreateForm(Model model){
 		Tunnit uudetTunnit =  new Tunnit();
 
+
 		System.out.println("tulostus");
 
+
+		System.out.println("Controller");
 		model.addAttribute("tunnit", uudetTunnit);
 		return "sisalto/lomake";
 	}
@@ -42,7 +45,7 @@ public class KayttajaController {
 	@RequestMapping(value="uusitunti", method=RequestMethod.POST)
 	public String create( @ModelAttribute(value="tunnit") Tunnit tunnit) {
 		dao.lisaa(tunnit);
-		return "sisalto/tulostus";
+		return "nayta/tulostus";
 	}
 	
 	
