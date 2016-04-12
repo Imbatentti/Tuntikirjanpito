@@ -91,8 +91,8 @@
 						</tr>
 						<tr>
 							<td>Kuvaus</td>
-							<td><input type="text" name="kuvasVali"></td>
-						</tr>
+							<td><input type="text" name="kuvausVali"></td>
+
 						<tr>
 							<td></td>
 							<td><button type="submit">Lisata tunnit</button>
