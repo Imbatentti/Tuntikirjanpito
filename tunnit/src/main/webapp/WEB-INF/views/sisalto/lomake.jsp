@@ -51,7 +51,7 @@
 
 
 
-		<!-- <div class="jumbotron">
+		<!--  <div class="jumbotron">
 			  
 			<form action="KayttajaController" method="post" name="tunnit">
 			<input type="hidden" name="action" value="tunnit"/>

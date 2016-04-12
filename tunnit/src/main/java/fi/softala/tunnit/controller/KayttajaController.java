@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 @RequestMapping (value="/hallitse")
 public class KayttajaController {
@@ -42,7 +43,7 @@ public class KayttajaController {
 	@RequestMapping(value="uusitunti", method=RequestMethod.POST)
 	public String create( @ModelAttribute(value="tunnit") Tunnit tunnit) {
 		dao.lisaa(tunnit);
-		return "sisalto/tulostus";
+		return "sisalto/lomake";
 	}
 	
 	
