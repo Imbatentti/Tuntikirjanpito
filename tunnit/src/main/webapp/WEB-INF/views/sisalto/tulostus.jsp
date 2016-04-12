@@ -36,8 +36,8 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="../hallitse/uusitunti">Tuntien kirjaus</a></li>
-						<li class="active"><a href="TulostusServlet.java">Näytä
+						<li><a href="../sisalto/uusitunti">Tuntien kirjaus</a></li>
+						<li class="active"><a href="tulostus">Näytä
 								tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
 					</ul>

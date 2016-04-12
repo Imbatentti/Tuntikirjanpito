@@ -38,7 +38,7 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="//nayta/tulostus">Tuntien
+						<li class="active"><a href="uusitunti">Tuntien
 								kirjaus</a></li>
 						<li><a href="../nayta/tulostus">Näytä tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
