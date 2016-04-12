@@ -31,7 +31,6 @@ public class KayttajaController {
 	@RequestMapping(value="uusitunti", method=RequestMethod.GET)
 	public String getCreateForm(Model model){
 		Tunnit uudetTunnit =  new Tunnit();
-		
 		model.addAttribute("tunnit", uudetTunnit);
 		return "lomake";
 	}

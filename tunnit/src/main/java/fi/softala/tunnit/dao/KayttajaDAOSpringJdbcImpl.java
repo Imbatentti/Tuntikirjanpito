@@ -57,7 +57,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public List<Tulostus> haeKaikki() {
-		String sql = "select * from TUNNIT";
+		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id from TUNNIT";
 		RowMapper<Tulostus> mapper = new TulostusRowMapper();
 		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
 		
