@@ -58,7 +58,7 @@
 
 		<sec:form-login 
 			login-page="/loginpage"
-			default-target-url="/sisalto/lomake" 
+			default-target-url="/sisalto/uusitunti" 
 			authentication-failure-url="/loginfail" />
 			
 		<sec:logout logout-success-url="/logout" />
