@@ -73,33 +73,30 @@
 				
 
 			</form> -->
-			
-			
 
-
-			<form modelAttribute="tunnit" method="post">
-
-				<fieldset>
-					<table>
-						<tr>
-							<td>Nimi</td>
-							<td><input type="text" name="nimi"></td>
-						</tr>
-						<tr>
-							<td>Tunnit</td>
-							<td><input type="text" name="tunnit"></td>
-						</tr>
-						<tr>
-							<td>Kuvaus</td>
-							<td><input type="text" name="kuvausVali"></td>
-
-						<tr>
-							<td></td>
-							<td><button type="submit">Lisata tunnit</button>
-					</table>
-
-				</fieldset>
-			</form> 
+			 <form:form modelAttribute="tunnit" method="post">
+                <fieldset>
+                    <legend>Syötä tunnit</legend>
+                    <p>
+                        <form:label path="nimi">Nimi</form:label>
+                        <br />
+                        <form:input path="nimi" />
+                    </p>
+                    <p>
+                        <form:label path="tunnit">Tunnit</form:label>
+                        <br />
+                        <form:input path="tunnit" />
+                    </p>
+                    <p>
+                        <form:label path="kuvausVali">Kuvaus</form:label>
+                        <br />
+                        <form:input path="kuvausVali" />
+                    </p>
+                    <p>
+                        <button type="submit">Lisää</button>
+                    </p>
+                </fieldset>
+            </form:form> 
 		</div>
 
 </body>
