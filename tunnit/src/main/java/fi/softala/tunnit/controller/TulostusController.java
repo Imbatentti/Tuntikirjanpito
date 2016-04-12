@@ -35,7 +35,7 @@ public class TulostusController {
 		List<Tulostus> tulostus = dao.haeKaikki();
 		model.addAttribute("tulostus", tulostus);
 
-		return "tulostus";
+		return "/sisalto/tulostus";
 
 	}
 	
