@@ -16,6 +16,7 @@ tuntien_maara DECIMAL(5,2) NOT NULL,
 paivamaara TIMESTAMP NULL,
 kuvaus varchar(1000),
 kayttaja_id int NOT NULL,
+kayttajatunnus varchar (50) NOT NULL,
 PRIMARY KEY (tunti_id),
 FOREIGN KEY (kayttaja_id) REFERENCES KAYTTAJAT(kayttaja_id)
 );

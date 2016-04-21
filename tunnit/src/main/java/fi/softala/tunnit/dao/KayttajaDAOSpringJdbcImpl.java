@@ -34,14 +34,14 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	public void lisaa(Tunnit tunnit){
 		String sql = "select kayttaja_id from KAYTTAJAT where kayttajatunnus =(?);";
 		String StrKayttajaId = (String)getJdbctemplate().queryForObject(sql, new Object[] {tunnit.getNimi() }, String.class);
-		
+		String kayttajatunnus = tunnit.getNimi();
 		int kayttajaId = Integer.parseInt(StrKayttajaId);
 		
 		Calendar kalenteri = Calendar.getInstance();
 		java.sql.Timestamp timestampObject = new java.sql.Timestamp(kalenteri.getTime().getTime());
 		
-		String sql2 = "insert into TUNNIT (tuntien_maara, paivamaara, kuvaus, kayttaja_id) values(?,?,?,?);";
-		Object[] parametrit2 = new Object[] { tunnit.getTunnit(), timestampObject, tunnit.getKuvausVali(), kayttajaId};
+		String sql2 = "insert into TUNNIT (tuntien_maara, paivamaara, kuvaus, kayttaja_id, kayttajatunnus) values(?,?,?,?,?);";
+		Object[] parametrit2 = new Object[] { tunnit.getTunnit(), timestampObject, tunnit.getKuvausVali(), kayttajaId,kayttajatunnus};
 		
 		jdbcTemplate.update(sql2, parametrit2);
 		
@@ -57,7 +57,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public List<Tulostus> haeKaikki() {
-		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id from TUNNIT";
+		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT";
 		RowMapper<Tulostus> mapper = new TulostusRowMapper();
 		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
 		
@@ -69,7 +69,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
         StandardPasswordEncoder spe = new StandardPasswordEncoder();    
         String salasanaKryptattuna = spe.encode(kayttaja.getSalasana());
         
-        String sql = "insert into KAYTTAJA (kayttajatunnus, email, etunimi, sukunumi, salasana) values(?,?,?,?,?);";
+        String sql = "insert into KAYTTAJA (kayttajatunnus, email, etunimi, sukunimi, salasana) values(?,?,?,?,?);";
         Object[] parametrit = new Object[] { kayttaja.getKayttajatunnus(), kayttaja.getEmail(), kayttaja.getEtunimi(), kayttaja.getSukunimi(), salasanaKryptattuna};
         
         jdbcTemplate.update(sql, parametrit);

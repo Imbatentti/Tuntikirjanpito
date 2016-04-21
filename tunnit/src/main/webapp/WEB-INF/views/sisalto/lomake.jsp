@@ -38,8 +38,7 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="uusitunti">Tuntien
-								kirjaus</a></li>
+						<li class="active"><a href="uusitunti">Tuntien kirjaus</a></li>
 						<li><a href="../nayta/tulostus">Näytä tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
 					</ul>
@@ -49,56 +48,31 @@
 			<!--/.container-fluid -->
 		</nav>
 
-
-
-		<!--  <div class="jumbotron">
-			  
-			<form action="KayttajaController" method="post" name="tunnit">
-			<input type="hidden" name="action" value="tunnit"/>
-				<h2>Syötä tiedot:</h2>
-				
-				<p>
-					<input type="text" name="nimi" placeholder="Nimi"/>
-				</p>
-				<p>
-					<input type="text" name="tunnit" placeholder="Tunnit"/>
-				</p>
-				<p>
-					<input type="text" name="kuvaus" placeholder="Kuvaus"/>
-				</p>
-				<p>
-					
-					<button type="submit" class="btn btn-primary">Lähetä</button>
-				</p>
-				
-
-			</form> -->
-
-			 <form:form modelAttribute="tunnit" method="post">
-                <fieldset>
-                    <legend>Syötä tunnit</legend>
-                    <p>
-                        <form:label path="nimi">Nimi</form:label>
-                        <br />
-                        <form:input path="nimi" />
-                    </p>
-                    <p>
-                        <form:label path="tunnit">Tunnit</form:label>
-                        <br />
-                        <form:input path="tunnit" />
-                    </p>
-                    <p>
-                        <form:label path="kuvausVali">Kuvaus</form:label>
-                        <br />
-                        <form:input path="kuvausVali" />
-                    </p>
-                    <p>
-                        <button type="submit">Lisää</button>
-                    </p>
-                </fieldset>
-            </form:form> 
+		<div class="jumbotron">
+			<form:form modelAttribute="tunnit" method="post">
+				<fieldset>
+					<legend>Syötä tunnit</legend>
+					<p>
+						<form:label path="nimi">Nimi</form:label>
+						<br />
+						<form:input path="nimi" />
+					</p>
+					<p>
+						<form:label path="tunnit">Tunnit</form:label>
+						<br />
+						<form:input path="tunnit" />
+					</p>
+					<p>
+						<form:label path="kuvausVali">Kuvaus</form:label>
+						<br />
+						<form:input path="kuvausVali" />
+					</p>
+					<p>
+						<button type="submit">Lisää</button>
+					</p>
+				</fieldset>
+			</form:form>
 		</div>
-
 </body>
 
 </html>

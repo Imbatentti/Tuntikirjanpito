@@ -16,6 +16,7 @@ public class TulostusRowMapper implements RowMapper<Tulostus> {
 		tulostus.setKuvaus(rs.getString("kuvaus"));
 		tulostus.setTuntiId(rs.getInt("tunti_id"));
 		tulostus.setTuntiMaara(rs.getDouble("tuntien_maara"));
+		tulostus.setKayttajatunnus(rs.getString("kayttajatunnus"));
 		
 		//formatoidaan sql timestamp stringiin
 		java.sql.Timestamp timestampObject = rs.getTimestamp("paivamaara");

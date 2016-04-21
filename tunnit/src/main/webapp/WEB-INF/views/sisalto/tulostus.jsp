@@ -54,19 +54,23 @@
 				<table class="table table-striped">
 					<tr>
 						<th>Tuntien määrä</th>
-						<th>Tunti ID</th>
+						<th>Käyttäjä</th>
+						<!--  <th>Tunti ID</th> -->
 						<th>Kuvaus</th>
-						<th>Käyttäjän ID</th>
+						<!--  <th>Käyttäjän ID</th> -->
 						<th>Päivämäärä</th>
 						<th>Poista</th>
+						
 					</tr>
 					<c:forEach items="${tulostus}" var="tulostus">
 						<tr>
 							<td><c:out value="${tulostus.tuntiMaara }" /></td>
-							<td><c:out value="${tulostus.tuntiId }" /></td>
+							<td><c:out value="${tulostus.kayttajatunnus }" /></td>
+							<!--   <td><c:out value="${tulostus.tuntiId }" /></td> -->
 							<td><c:out value="${tulostus.kuvaus }" /></td>
-							<td><c:out value="${tulostus.kayttajaId }" /></td>
+							<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
 							<td><c:out value="${tulostus.pvm }" /></td>
+							
 							<td>
 								<a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
 								<form id="${formId }" action="${deleteUrl}" method="post">

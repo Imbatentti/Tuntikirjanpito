@@ -19,9 +19,7 @@
 </head>
 
 <body>
-
 	<div class="container">
-     
      	<form action="j_spring_security_check" method="post">
      		<fieldset>
      			<table>
@@ -31,7 +29,6 @@
      			</table>
      		</fieldset>
      	</form>
-     
 	</div> <!-- /container -->
 </body>
 </html>
