@@ -71,6 +71,8 @@
 								<form id="${formId}" action="TulostusServlet" method="post">
 									<input id="poistettava" name="poistettava" 
 									type="hidden" value="${tulostus.tuntiId }"/>
+									<input type="submit" name="Poista"
+									value="poisto" />
 								</form>
 						</tr>
 					</c:forEach>
