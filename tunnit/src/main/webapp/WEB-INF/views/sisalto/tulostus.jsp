@@ -51,6 +51,7 @@
 		<div class="jumbotron">
 			<form action="TulostusServlet" method="get">
 				<h2>Kirjatut tunnit</h2>
+				<c:out value="${projektiSumma.kaikkiTunnit }"/>
 				<table class="table table-striped">
 					<tr>
 						<th>Tuntien määrä</th>

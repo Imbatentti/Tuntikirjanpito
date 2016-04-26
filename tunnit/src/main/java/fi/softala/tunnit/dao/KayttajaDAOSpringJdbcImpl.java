@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import fi.softala.tunnit.bean.Kayttaja;
+import fi.softala.tunnit.bean.Projektisumma;
 import fi.softala.tunnit.bean.Tulostus;
 import fi.softala.tunnit.bean.Tunnit;
 
@@ -74,4 +75,21 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
         
         jdbcTemplate.update(sql, parametrit);
     }
+
+	public List<Tulostus> haeKayttajanTunnit() {
+		//käyttäjätunnus sessiosta alunperin, muuten valittavissa
+		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus=(?);";
+		RowMapper<Tulostus> mapper = new TulostusRowMapper();
+		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
+		
+		return tulostus;
+	}
+
+	public List<Projektisumma> haeProjektiSumma() {
+		String sql = "select SUM(tuntien_maara) from TUNNIT";
+		RowMapper<Projektisumma> mapper = new TuntiMaaraRowMapper();
+		List<Projektisumma> projektisumma = jdbcTemplate.query(sql, mapper);
+		
+		return projektisumma;
+	}
 }
