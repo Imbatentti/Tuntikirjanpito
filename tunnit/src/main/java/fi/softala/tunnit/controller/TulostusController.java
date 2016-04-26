@@ -47,6 +47,15 @@ public class TulostusController {
 		
 		return "redirect:/tulostus";
 	}
-		
+	
+	// TUNTIEN TULOSTUS
+	@RequestMapping(value="kayttajaTulostus", method=RequestMethod.GET)
+	public String getKayttajaTulostus(Model model) {
+		List<Tulostus> kayttajaTulostus = dao.haeKaikkiYht();
+		model.addAttribute("kayttajaTulostus", kayttajaTulostus);
+
+		return "/sisalto/kayttajaTulostus";
+
+	}
 	
 }

@@ -49,6 +49,15 @@
 
 
 		<div class="jumbotron">
+			
+				<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
+							<li class="active"><a href="../nayta/kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
+						</ul>
+					</div>
+			
+		
 			<form action="TulostusServlet" method="get">
 				<h2>Kirjatut tunnit</h2>
 				<table class="table table-striped">

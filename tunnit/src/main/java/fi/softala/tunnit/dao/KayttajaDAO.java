@@ -15,5 +15,7 @@ public interface KayttajaDAO {
 	public abstract void poista(Tunnit poistettava);
 	
 	public abstract void rekisteroi(Kayttaja kayttaja);
+
+	public abstract List<Tulostus> haeKaikkiYht();
 	
 }

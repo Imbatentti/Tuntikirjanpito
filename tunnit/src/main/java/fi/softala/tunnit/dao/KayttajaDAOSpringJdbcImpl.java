@@ -74,4 +74,13 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
         
         jdbcTemplate.update(sql, parametrit);
     }
+
+	public List<Tulostus> haeKaikkiYht() {
+		String sql = "select DISTINCT kayttajatunnus,COUNT(tuntien_maara) from TUNNIT";
+		RowMapper<Tulostus> mapper = new TulostusRowMapper();
+		List<Tulostus> kayttajaTulostus = jdbcTemplate.query(sql, mapper);
+		
+		return kayttajaTulostus;
+	}
+
 }
