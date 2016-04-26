@@ -52,7 +52,7 @@
 			<form action="TulostusServlet" method="get">
 				<h2>Kirjatut tunnit</h2>
 				<c:forEach items="${projektiSumma}" var="projektiSumma">
-				<td><c:out value="${projektiSumma.kaikkiTunnit }"/></td>
+				<td>Tunnit yhteensä: <c:out value="${projektiSumma.kaikkiTunnit }"/></td>
 				</c:forEach>
 				<table class="table table-striped">
 					<tr>
