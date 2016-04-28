@@ -11,7 +11,7 @@ public class TuntiMaaraRowMapper implements RowMapper<Projektisumma> {
 
 	public Projektisumma mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Projektisumma ps = new Projektisumma();
-		ps.setKaikkiTunnit(rs.getInt("SUM(tuntien_maara)"));
+		ps.setKaikkiTunnit(rs.getDouble("SUM(tuntien_maara)"));
 		
 
 		return ps;
