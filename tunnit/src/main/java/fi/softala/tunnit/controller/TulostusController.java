@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fi.softala.tunnit.bean.Projektisumma;
 import fi.softala.tunnit.bean.Tulostus;
 import fi.softala.tunnit.bean.Tunnit;
 import fi.softala.tunnit.dao.KayttajaDAO;
@@ -28,12 +29,24 @@ public class TulostusController {
 	public void setDao(KayttajaDAO dao) {
 		this.dao = dao;
 	}
-
-	// TUNTIEN TULOSTUS
-	@RequestMapping(value="tulostus", method=RequestMethod.GET)
+	
+	//KÄYTTÄJÄN TUNTIEN TULOSTUS WIP
+	/*@RequestMapping(value="kayttaja", method=RequestMethod.GET)
 	public String getTulostus(Model model) {
 		List<Tulostus> tulostus = dao.haeKaikki();
 		model.addAttribute("tulostus", tulostus);
+
+		return "/sisalto/tulostus";
+
+	}*/
+	
+	// KAIKKIEN TUNTIEN TULOSTUS
+	@RequestMapping(value="tulostus", method=RequestMethod.GET)
+	public String getTulostus(Model model) {
+		List<Tulostus> tulostus = dao.haeKaikki();
+		List<Projektisumma> projektiSumma =dao.haeProjektiSumma();
+		model.addAttribute("tulostus", tulostus);
+		model.addAttribute("projektiSumma", projektiSumma);
 
 		return "/sisalto/tulostus";
 
@@ -47,7 +60,7 @@ public class TulostusController {
 		
 		return "redirect:/tulostus";
 	}
-	
+	/*
 	// TUNTIEN TULOSTUS
 	@RequestMapping(value="kayttajaTulostus", method=RequestMethod.GET)
 	public String getKayttajaTulostus(Model model) {
@@ -56,6 +69,6 @@ public class TulostusController {
 
 		return "/sisalto/kayttajaTulostus";
 
-	}
+	}*/
 	
 }
