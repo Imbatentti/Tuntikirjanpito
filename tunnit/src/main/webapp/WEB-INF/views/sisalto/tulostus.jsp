@@ -37,8 +37,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="../sisalto/uusitunti">Tuntien kirjaus</a></li>
-						<li class="active"><a href="tulostus">Näytä
-								tunnit</a></li>
+						<li class="active"><a href="tulostus">Näytä tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
 					</ul>
 				</div>
@@ -60,7 +59,7 @@
 						<!--  <th>Käyttäjän ID</th> -->
 						<th>Päivämäärä</th>
 						<th>Poista</th>
-						
+
 					</tr>
 					<c:forEach items="${tulostus}" var="tulostus">
 						<tr>
@@ -70,13 +69,17 @@
 							<td><c:out value="${tulostus.kuvaus }" /></td>
 							<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
 							<td><c:out value="${tulostus.pvm }" /></td>
-							
+
 							<td>
-								<a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
-								<form id="${formId }" action="${deleteUrl}" method="post">
-									<input id="poistettava" name="poistettava" 
-									type="hidden" value="${tulostus.tuntiId}"/>
-								</form>
+								
+								<form:form action="poista" modelAttribute="poista" method="post">
+									
+									<input id="poistoId" name="poistoId" type="hidden"
+										value="${tulostus.tuntiId}" />
+										<button type="submit">Poista</button>
+
+								</form:form>
+								</td>
 						</tr>
 					</c:forEach>
 				</table>

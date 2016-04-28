@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import fi.softala.tunnit.bean.Kayttaja;
+import fi.softala.tunnit.bean.Poistettava;
 import fi.softala.tunnit.bean.Tulostus;
 import fi.softala.tunnit.bean.Tunnit;
 
@@ -47,13 +48,16 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 	}
 	
-	public void poista(Tunnit poistettava){
-		Object[] poistettavaID = {poistettava};
-		String deleteSql = "delete from TUNNIT where tunti_id =(?);";
-		int[] types = {Types.BIGINT};
+	public void poista(Poistettava poistoId){
 		
-		int rows = jdbcTemplate.update(deleteSql, poistettavaID, types);
-		System.out.println(rows + " row(s) deleted.");
+		System.out.println("Daossa "+ poistoId);
+		int poistettava = Integer.parseInt(poistoId.getPoistoId());
+		String deleteSql = "delete from TUNNIT where tunti_id =(?);";
+		
+		Object[] parametrit = new Object[] {poistettava};
+		jdbcTemplate.update(deleteSql, parametrit);
+		
+		
 	}
 	
 	public List<Tulostus> haeKaikki() {
