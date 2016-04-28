@@ -11,8 +11,7 @@ public class KayttajaTulostusRowMapper implements RowMapper<KayttajaTulostus> {
 	
 	public KayttajaTulostus mapRow(ResultSet rs, int rowNum) throws SQLException{
 		KayttajaTulostus kt = new KayttajaTulostus();
-		kt.setKayttajatunnus(kt.getString("kayttajatunnus"));
-		//kt.setKayttajatunnus(kt.getString("kayttajatunnus"));
+		kt.setKayttajatunnus(rs.getString("kayttajatunnus"));
 		
 		return kt;
 	}
