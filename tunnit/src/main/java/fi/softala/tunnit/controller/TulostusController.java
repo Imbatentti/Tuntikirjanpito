@@ -37,7 +37,6 @@ public class TulostusController {
 		model.addAttribute("kayttajatunnit", kayttajatunnit);
 
 		return "/sisalto/kayttajaTulostus";
-
 	}
 	
 	// KAIKKIEN TUNTIEN TULOSTUS
