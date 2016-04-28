@@ -31,10 +31,12 @@ public class TulostusController {
 	}
 	
 	//KÄYTTÄJÄN TUNTIEN TULOSTUS WIP
-	@RequestMapping(value="kayttajaTunnit", method=RequestMethod.GET)
+	@RequestMapping(value="kayttajaTulostus", method=RequestMethod.GET)
 	public String getKayttajatulostus(Model model) {
 		List<Projektisumma> kayttajatunnit = dao.haeKayttajaSumma();
+		List<Tulostus> tulostus = dao.haeKayttajanTunnit();
 		model.addAttribute("kayttajatunnit", kayttajatunnit);
+		model.addAttribute("tulostus", tulostus);
 
 		return "/sisalto/kayttajaTulostus";
 	}
@@ -59,6 +61,15 @@ public class TulostusController {
 		
 		return "redirect:/tulostus";
 	}
-		
+	/*
+	// TUNTIEN TULOSTUS
+	@RequestMapping(value="kayttajaTulostus", method=RequestMethod.GET)
+	public String getKayttajaTulostus(Model model) {
+		List<Tulostus> kayttajaTulostus = dao.haeKaikkiYht();
+		model.addAttribute("kayttajaTulostus", kayttajaTulostus);
+
+		return "/sisalto/kayttajaTulostus";
+
+	}*/
 	
 }

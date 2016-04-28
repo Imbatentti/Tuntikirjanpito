@@ -87,7 +87,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
 	public List<Projektisumma> haeKayttajaSumma() {
 		//käyttäjätunnus sessiosta alunperin, muuten valittavissa
-		String sql = "select SUM(tuntien_maara) from TUNNIT where kayttajatunnus=(?);";
+		String sql = "select SUM(tuntien_maara) from TUNNIT where kayttajatunnus='Raikka';";
 		RowMapper<Projektisumma> mapper = new TuntiMaaraRowMapper();
 		List<Projektisumma> projektisumma = jdbcTemplate.query(sql, mapper);
 		
@@ -102,8 +102,8 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		return projektisumma;
 	}
 
+
 	public List<KayttajaTulostus> haeKayttajat() {
-		
 		String sql ="select kayttajatunnus from KAYTTAJA;";
 		RowMapper<KayttajaTulostus> mapper = new KayttajaTulostusRowMapper();
 		List<KayttajaTulostus> kayttajat = jdbcTemplate.query(sql, mapper);
@@ -111,6 +111,5 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		return kayttajat;
 	}
 
-	
-	
+
 }
