@@ -2,23 +2,23 @@ package fi.softala.tunnit.bean;
 
 public class Projektisumma {
 
-	int kaikkiTunnit;
+	double kaikkiTunnit;
 
 	public Projektisumma() {
 		super();
 	}
 
-	public Projektisumma(int kaikkiTunnit) {
+	public Projektisumma(double kaikkiTunnit) {
 		this.kaikkiTunnit = kaikkiTunnit;
 	}
 
 	
 
-	public int getKaikkiTunnit() {
+	public double getKaikkiTunnit() {
 		return kaikkiTunnit;
 	}
 
-	public void setKaikkiTunnit(int kaikkiTunnit) {
+	public void setKaikkiTunnit(double kaikkiTunnit) {
 		this.kaikkiTunnit = kaikkiTunnit;
 	}
 
