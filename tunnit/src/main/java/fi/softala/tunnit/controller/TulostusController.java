@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fi.softala.tunnit.bean.KayttajaTulostus;
 import fi.softala.tunnit.bean.Projektisumma;
 import fi.softala.tunnit.bean.Tulostus;
 import fi.softala.tunnit.bean.Tunnit;
@@ -30,7 +31,7 @@ public class TulostusController {
 		this.dao = dao;
 	}
 	
-	//KÄYTTÄJÄN TUNTIEN TULOSTUS WIP
+	//KÄYTTÄJÄN TUNTIEN TULOSTUS
 	@RequestMapping(value="kayttajaTulostus", method=RequestMethod.GET)
 	public String getKayttajatulostus(Model model) {
 		List<Projektisumma> kayttajatunnit = dao.haeKayttajaSumma();
@@ -46,6 +47,8 @@ public class TulostusController {
 	public String getTulostus(Model model) {
 		List<Tulostus> tulostus = dao.haeKaikki();
 		List<Projektisumma> projektiSumma =dao.haeProjektiSumma();
+		List<KayttajaTulostus> kayttajatulostus = dao.haeKayttajat();
+		model.addAttribute("kayttajatulostus", kayttajatulostus);
 		model.addAttribute("tulostus", tulostus);
 		model.addAttribute("projektiSumma", projektiSumma);
 

@@ -63,6 +63,9 @@
 				<c:forEach items="${projektiSumma}" var="projektiSumma">
 				<td>Tunnit yhteensä: <c:out value="${projektiSumma.kaikkiTunnit }"/></td>
 				</c:forEach>
+				<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+				<c:out value="${kayttajatulostus.kayttajatunnus }"/>
+				</c:forEach>
 				<table class="table table-striped">
 					<tr>
 						<th>Tunnit</th>

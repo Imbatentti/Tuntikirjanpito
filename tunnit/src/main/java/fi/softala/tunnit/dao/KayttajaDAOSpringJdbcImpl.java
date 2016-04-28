@@ -67,7 +67,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public List<Tulostus> haeKayttajanTunnit() {
-		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus=(?);";
+		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus='Raikka';";
 		RowMapper<Tulostus> mapper = new TulostusRowMapper();
 		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
 		
@@ -79,7 +79,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
         StandardPasswordEncoder spe = new StandardPasswordEncoder();    
         String salasanaKryptattuna = spe.encode(kayttaja.getSalasana());
         
-        String sql = "insert into KAYTTAJA (kayttajatunnus, email, etunimi, sukunimi, salasana) values(?,?,?,?,?);";
+        String sql = "insert into KAYTTAJAT (kayttajatunnus, email, etunimi, sukunimi, salasana) values(?,?,?,?,?);";
         Object[] parametrit = new Object[] { kayttaja.getKayttajatunnus(), kayttaja.getEmail(), kayttaja.getEtunimi(), kayttaja.getSukunimi(), salasanaKryptattuna};
         
         jdbcTemplate.update(sql, parametrit);
@@ -104,7 +104,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
 
 	public List<KayttajaTulostus> haeKayttajat() {
-		String sql ="select kayttajatunnus from KAYTTAJA;";
+		String sql ="select kayttajatunnus from KAYTTAJAT;";
 		RowMapper<KayttajaTulostus> mapper = new KayttajaTulostusRowMapper();
 		List<KayttajaTulostus> kayttajat = jdbcTemplate.query(sql, mapper);
 		
