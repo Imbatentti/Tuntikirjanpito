@@ -76,9 +76,9 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
         jdbcTemplate.update(sql, parametrit);
     }
 
-	public List<Projektisumma> haeKayttajanTunnit() {
+	public List<Projektisumma> haeKayttajaSumma() {
 		//käyttäjätunnus sessiosta alunperin, muuten valittavissa
-		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus=(?);";
+		String sql = "select SUM(tuntien_maara) from TUNNIT where kayttajatunnus=(?);";
 		RowMapper<Projektisumma> mapper = new TuntiMaaraRowMapper();
 		List<Projektisumma> projektisumma = jdbcTemplate.query(sql, mapper);
 		
@@ -94,5 +94,11 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 
 
+	public List<Tulostus> haeKayttajanTunnit() {
+		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus=(?);";
+		RowMapper<Projektisumma> mapper = new TuntiMaaraRowMapper();
+		List<Projektisumma> projektisumma = jdbcTemplate.query(sql, mapper);
+		return null;
+	}
 
 }
