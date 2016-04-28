@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import fi.softala.tunnit.bean.Kayttaja;
+import fi.softala.tunnit.bean.KayttajaTulostus;
 import fi.softala.tunnit.bean.Projektisumma;
 import fi.softala.tunnit.bean.Tulostus;
 import fi.softala.tunnit.bean.Tunnit;
@@ -65,6 +66,14 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		return tulostus;
 	}
 	
+	public List<Tulostus> haeKayttajanTunnit() {
+		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus=(?);";
+		RowMapper<Tulostus> mapper = new TulostusRowMapper();
+		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
+		
+		return tulostus;
+	}
+	
 	public void rekisteroi(Kayttaja kayttaja) {
         
         StandardPasswordEncoder spe = new StandardPasswordEncoder();    
@@ -93,13 +102,15 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		return projektisumma;
 	}
 
-	public List<Tulostus> haeKayttajanTunnit() {
-		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus=(?);";
-		RowMapper<Tulostus> mapper = new TulostusRowMapper();
-		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
+	public List<KayttajaTulostus> haeKayttajat() {
 		
-		return tulostus;
+		String sql ="select kayttajatunnus from KAYTTAJA;";
+		RowMapper<KayttajaTulostus> mapper = new KayttajaTulostusRowMapper();
+		List<KayttajaTulostus> kayttajat = jdbcTemplate.query(sql, mapper);
+		
+		return kayttajat;
 	}
+
 	
 	
 }
