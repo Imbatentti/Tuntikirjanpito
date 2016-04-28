@@ -39,6 +39,7 @@
 						<li><a href="../sisalto/uusitunti">Tuntien kirjaus</a></li>
 						<li class="active"><a href="tulostus">Näytä tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
+						<!--<li><a href="#">Kirjaudu ulos</a></li>-->
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
