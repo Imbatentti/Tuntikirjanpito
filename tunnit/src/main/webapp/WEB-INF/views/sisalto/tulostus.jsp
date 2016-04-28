@@ -50,6 +50,7 @@
 
 		<div class="jumbotron">
 
+
 			<div class="container">
 				<nav class="navbar navbar-default">
 					<div class="container-fluid">
@@ -112,6 +113,42 @@
 
 					<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
 						<c:out value="${kayttajatulostus.kayttajatunnus }" />
+					</c:forEach>
+
+			<form action="TulostusServlet" method="get">
+				<h2>Kirjatut tunnit</h2>
+				<table class="table table-striped">
+					<tr>
+						<th>Tuntien määrä</th>
+						<th>Käyttäjä</th>
+						<!--  <th>Tunti ID</th> -->
+						<th>Kuvaus</th>
+						<!--  <th>Käyttäjän ID</th> -->
+						<th>Päivämäärä</th>
+						<th>Poista</th>
+
+					</tr>
+					<c:forEach items="${tulostus}" var="tulostus">
+						<tr>
+							<td><c:out value="${tulostus.tuntiMaara }" /></td>
+							<td><c:out value="${tulostus.kayttajatunnus }" /></td>
+							<!--   <td><c:out value="${tulostus.tuntiId }" /></td> -->
+							<td><c:out value="${tulostus.kuvaus }" /></td>
+							<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
+							<td><c:out value="${tulostus.pvm }" /></td>
+
+							<td>
+								
+								<form:form action="poista" modelAttribute="poista" method="post">
+									
+									<input id="poistoId" name="poistoId" type="hidden"
+										value="${tulostus.tuntiId}" />
+										<button type="submit">Poista</button>
+
+								</form:form>
+								</td>
+						</tr>
+
 					</c:forEach>
 					<div class="table-responsive">
 						<table class="table table-striped">

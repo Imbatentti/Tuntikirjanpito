@@ -3,8 +3,11 @@ package fi.softala.tunnit.dao;
 import java.util.List;
 
 import fi.softala.tunnit.bean.Kayttaja;
+
 import fi.softala.tunnit.bean.KayttajaTulostus;
 import fi.softala.tunnit.bean.Projektisumma;
+import fi.softala.tunnit.bean.Poistettava;
+
 import fi.softala.tunnit.bean.Tulostus;
 import fi.softala.tunnit.bean.Tunnit;
 
@@ -20,7 +23,7 @@ public interface KayttajaDAO {
 	
 	public abstract List<Projektisumma> haeKayttajaSumma(KayttajaTulostus kayttajatulostus);
 
-	public abstract void poista(Tunnit poistettava);
+	public abstract void poista(Poistettava poistoId);
 	
 	public abstract List<KayttajaTulostus> haeKayttajat();
 	
