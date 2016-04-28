@@ -65,13 +65,13 @@
 				</c:forEach>
 				<table class="table table-striped">
 					<tr>
-						<th>Tuntien määrä</th>
+						<th>Tunnit</th>
 						<th>Käyttäjä</th>
 						<!--  <th>Tunti ID</th> -->
 						<th>Kuvaus</th>
 						<!--  <th>Käyttäjän ID</th> -->
 						<th>Päivämäärä</th>
-						<th>Poista</th>
+						<th>Poisto</th>
 						
 					</tr>
 					<c:forEach items="${tulostus}" var="tulostus">
