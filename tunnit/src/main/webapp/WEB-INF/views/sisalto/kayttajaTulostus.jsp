@@ -39,6 +39,7 @@
 						<li><a href="../sisalto/uusitunti">Tuntien kirjaus</a></li>
 						<li class="active"><a href="tulostus">Näytä tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
+						<!--<li><a href="#">Kirjaudu ulos</a></li>-->
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -48,13 +49,37 @@
 
 
 		<div class="jumbotron">
+		
+		<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../nayta/tulostus">Kaikki tunnit</a></li>
+						<li class="active"><a href="kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.container-fluid -->
+		</nav>
 
-			<div id="navbar" class="navbar-collapse collapse">
+			<!--  <div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="../nayta/tulostus">Kaikki tunnit</a></li>
 					<li class="active"><a href="kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
 				</ul>
 			</div>
+			-->
 
 
 			<form action="TulostusServlet" method="get">
@@ -64,6 +89,7 @@
 							<td>Tunnit yhteensä: <c:out
 									value="${kayttajatunnit.kaikkiTunnit }" /></td>
 						</c:forEach>
+				<div class="table-responsive">
 				<table class="table table-striped">
 					<tr>
 					<th>Tunnit</th>
@@ -104,6 +130,7 @@
 					</c:forEach>
 					-->
 				</table>
+				</div>
 			</form>
 		</div>
 	</div>
