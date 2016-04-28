@@ -74,16 +74,26 @@
 								</button>
 								
 								<ul class="dropdown-menu">
-									<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
-										<li><a href="../nayta/kayttajaTulostus">${kayttajatulostus.kayttajatunnus }</a></li>
-										<input type="hidden" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
-									</c:forEach>
+									<form:form modelAttribute="kayttajatulostus" method="post">
+										<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+											<form:label path="kayttajatunnus">${kayttajatulostus.kayttajatunnus }</form:label>
+											<form:input type="submit" path="../nayta/kayttajaTulostus"></form:input>/>
+											<form:input type="hidden" path="kayttajatunnus" value="${kayttajatulostus.kayttajatunnus }"></form:input>/>
+										</c:forEach>
+									</form:form>
 								</ul>
 							</div>
 						<!--/.nav-collapse -->
 					</div>
 					<!--/.container-fluid -->
 				</nav>
+				
+				<!-- 
+				<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+					<li><a type="submit" href="../nayta/kayttajaTulostus">${kayttajatulostus.kayttajatunnus }</a></li>
+					<input type="hidden" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
+				</c:forEach>
+				 -->
 
 				<!--  <div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">

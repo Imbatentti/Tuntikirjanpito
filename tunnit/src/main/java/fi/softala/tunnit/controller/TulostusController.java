@@ -47,7 +47,7 @@ public class TulostusController {
 	
 	//KÄYTTÄJÄN VALITSEMINEN
 	@RequestMapping(value="tulostus", method=RequestMethod.POST)
-	public String kayttajat ( @ModelAttribute(value="kayttaja") KayttajaTulostus kayttajatulostus){
+	public String create ( @ModelAttribute(value="kayttajatulostus") KayttajaTulostus kayttajatulostus){
 		dao.haeKayttajanTunnit(kayttajatulostus);
 		return "/sisalto/kayttajaTulostus";
 	}
