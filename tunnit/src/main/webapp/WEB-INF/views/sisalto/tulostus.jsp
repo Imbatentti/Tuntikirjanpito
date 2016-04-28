@@ -49,20 +49,44 @@
 
 
 		<div class="jumbotron">
-			
+		
+				<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
 				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
+						<li><a href="../nayta/kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+			<!--/.container-fluid -->
+		</nav>
+			
+				<!--  <div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
 							<li class="active"><a href="../nayta/kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
 						</ul>
 					</div>
-			
+			-->
 		
 			<form action="TulostusServlet" method="get">
 				<h2>Kirjatut tunnit</h2>
 				<c:forEach items="${projektiSumma}" var="projektiSumma">
 				<td>Tunnit yhteensä: <c:out value="${projektiSumma.kaikkiTunnit }"/></td>
 				</c:forEach>
+				<div class="table-responsive">
 				<table class="table table-striped">
 					<tr>
 						<th>Tunnit</th>
@@ -92,6 +116,7 @@
 						</tr>
 					</c:forEach>
 				</table>
+				</div>
 			</form>
 		</div>
 	</div>
