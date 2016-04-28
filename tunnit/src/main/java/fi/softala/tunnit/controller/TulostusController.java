@@ -55,7 +55,6 @@ public class TulostusController {
 		model.addAttribute("projektiSumma", projektiSumma);
 
 		return "/sisalto/tulostus";
-
 	}
 	
 	//TUNNIN POISTO

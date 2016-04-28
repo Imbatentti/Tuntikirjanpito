@@ -14,11 +14,11 @@ public interface KayttajaDAO {
 	
 	public abstract List<Tulostus> haeKaikki();
 	
-	public abstract List<Tulostus> haeKayttajanTunnit();
+	public abstract List<Tulostus> haeKayttajanTunnit(KayttajaTulostus kayttajatulostus);
 	
 	public abstract List<Projektisumma> haeProjektiSumma();
 	
-	public abstract List<Projektisumma> haeKayttajaSumma();
+	public abstract List<Projektisumma> haeKayttajaSumma(KayttajaTulostus kayttajatulostus);
 
 	public abstract void poista(Tunnit poistettava);
 	
