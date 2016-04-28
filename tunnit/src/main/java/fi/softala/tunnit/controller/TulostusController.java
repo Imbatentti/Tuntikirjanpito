@@ -31,14 +31,14 @@ public class TulostusController {
 	}
 	
 	//KÄYTTÄJÄN TUNTIEN TULOSTUS WIP
-	/*@RequestMapping(value="kayttaja", method=RequestMethod.GET)
-	public String getTulostus(Model model) {
-		List<Tulostus> tulostus = dao.haeKaikki();
-		model.addAttribute("tulostus", tulostus);
+	@RequestMapping(value="kayttaja", method=RequestMethod.GET)
+	public String getKayttajatulostus(Model model) {
+		List<Projektisumma> kayttajatunnit = dao.haeKayttajanTunnit();
+		model.addAttribute("kayttajatunnit", kayttajatunnit);
 
 		return "/sisalto/tulostus";
 
-	}*/
+	}
 	
 	// KAIKKIEN TUNTIEN TULOSTUS
 	@RequestMapping(value="tulostus", method=RequestMethod.GET)
