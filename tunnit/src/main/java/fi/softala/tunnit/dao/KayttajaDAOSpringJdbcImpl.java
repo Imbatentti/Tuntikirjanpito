@@ -95,9 +95,10 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
 	public List<Tulostus> haeKayttajanTunnit() {
 		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus=(?);";
-		RowMapper<Projektisumma> mapper = new TuntiMaaraRowMapper();
-		List<Projektisumma> projektisumma = jdbcTemplate.query(sql, mapper);
-		return null;
+		RowMapper<Tulostus> mapper = new TulostusRowMapper();
+		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
+		
+		return tulostus;
 	}
 	
 	
