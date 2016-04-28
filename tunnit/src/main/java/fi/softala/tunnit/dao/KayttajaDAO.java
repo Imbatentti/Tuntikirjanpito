@@ -13,7 +13,7 @@ public interface KayttajaDAO {
 	
 	public abstract List<Tulostus> haeKaikki();
 	
-	public abstract List<Tulostus> haeKayttajanTunnit();
+	public abstract List<Projektisumma> haeKayttajanTunnit();
 	
 	public abstract List<Projektisumma> haeProjektiSumma();
 
