@@ -65,9 +65,20 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="../nayta/tulostus">Kaikki tunnit</a></li>
-						<li class="active"><a href="kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
 					</ul>
+						
 				</div>
+				<div class="dropdown">
+						 	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Valitse käyttäjä
+						 		<span class="caret"></span>
+						 	</button>
+						 		<ul class="dropdown-menu">
+						 			<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+						   				<li><a href="kayttajaTulostus">${kayttajatulostus.kayttajatunnus }</a></li>
+						   				<input type="hidden" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
+						    		</c:forEach>
+						  		</ul>
+						</div>
 				<!--/.nav-collapse -->
 			</div>
 			<!--/.container-fluid -->

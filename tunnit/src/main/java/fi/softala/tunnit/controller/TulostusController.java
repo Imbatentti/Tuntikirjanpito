@@ -36,6 +36,8 @@ public class TulostusController {
 	public String getKayttajatulostus(Model model) {
 		List<Projektisumma> kayttajatunnit = dao.haeKayttajaSumma();
 		List<Tulostus> tulostus = dao.haeKayttajanTunnit();
+		List<KayttajaTulostus> kayttajatulostus = dao.haeKayttajat();
+		model.addAttribute("kayttajatulostus", kayttajatulostus);
 		model.addAttribute("kayttajatunnit", kayttajatunnit);
 		model.addAttribute("tulostus", tulostus);
 

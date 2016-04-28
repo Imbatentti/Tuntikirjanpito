@@ -37,8 +37,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="../sisalto/uusitunti">Tuntien kirjaus</a></li>
-						<li class="active"><a href="tulostus">Näytä
-								tunnit</a></li>
+						<li class="active"><a href="tulostus">Näytä tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
 						<!--<li><a href="#">Kirjaudu ulos</a></li>-->
 					</ul>
@@ -50,30 +49,42 @@
 
 
 		<div class="jumbotron">
-		
-				<div class="container">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-						aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
-						<li><a href="../nayta/kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
-					</ul>
-				</div>
-				<!--/.nav-collapse -->
-			</div>
-			<!--/.container-fluid -->
-		</nav>
-			
+
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar"
+								aria-expanded="false" aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
+							</ul>
+						</div>
+							<div class="dropdown">
+								<button class="btn btn-primary dropdown-toggle" type="button"
+									data-toggle="dropdown">
+									Valitse käyttäjä <span class="caret"></span>
+								</button>
+								
+								<ul class="dropdown-menu">
+									<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+										<li><a href="../nayta/kayttajaTulostus">${kayttajatulostus.kayttajatunnus }</a></li>
+										<input type="hidden" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
+									</c:forEach>
+								</ul>
+							</div>
+						<!--/.nav-collapse -->
+					</div>
+					<!--/.container-fluid -->
+				</nav>
+
 				<!--  <div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
@@ -81,49 +92,49 @@
 						</ul>
 					</div>
 			-->
-		
-			<form action="TulostusServlet" method="get">
-				<h2>Kirjatut tunnit</h2>
-				<c:forEach items="${projektiSumma}" var="projektiSumma">
-				<td>Tunnit yhteensä: <c:out value="${projektiSumma.kaikkiTunnit }"/></td>
-				</c:forEach>
 
-				<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
-				<c:out value="${kayttajatulostus.kayttajatunnus }"/>
-				</c:forEach>
-				<div class="table-responsive">
-				<table class="table table-striped">
-					<tr>
-						<th>Tunnit</th>
-						<th>Käyttäjä</th>
-						<!--  <th>Tunti ID</th> -->
-						<th>Kuvaus</th>
-						<!--  <th>Käyttäjän ID</th> -->
-						<th>Päivämäärä</th>
-						<th>Poisto</th>
-						
-					</tr>
-					<c:forEach items="${tulostus}" var="tulostus">
-						<tr>
-							<td><c:out value="${tulostus.tuntiMaara }" /></td>
-							<td><c:out value="${tulostus.kayttajatunnus }" /></td>
-							<!--   <td><c:out value="${tulostus.tuntiId }" /></td> -->
-							<td><c:out value="${tulostus.kuvaus }" /></td>
-							<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
-							<td><c:out value="${tulostus.pvm }" /></td>
-							
-							<td>
-								<a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
-								<form id="${formId }" action="${deleteUrl}" method="post">
-									<input id="poistettava" name="poistettava" 
-									type="hidden" value="${tulostus.tuntiId}"/>
-								</form>
-						</tr>
+				<form action="TulostusServlet" method="get">
+					<h2>Kirjatut tunnit</h2>
+					<c:forEach items="${projektiSumma}" var="projektiSumma">
+						<td>Tunnit yhteensä: <c:out
+								value="${projektiSumma.kaikkiTunnit }" /></td>
 					</c:forEach>
-				</table>
-				</div>
-			</form>
+
+					<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+						<c:out value="${kayttajatulostus.kayttajatunnus }" />
+					</c:forEach>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<tr>
+								<th>Tunnit</th>
+								<th>Käyttäjä</th>
+								<!--  <th>Tunti ID</th> -->
+								<th>Kuvaus</th>
+								<!--  <th>Käyttäjän ID</th> -->
+								<th>Päivämäärä</th>
+								<th>Poisto</th>
+
+							</tr>
+							<c:forEach items="${tulostus}" var="tulostus">
+								<tr>
+									<td><c:out value="${tulostus.tuntiMaara }" /></td>
+									<td><c:out value="${tulostus.kayttajatunnus }" /></td>
+									<!--   <td><c:out value="${tulostus.tuntiId }" /></td> -->
+									<td><c:out value="${tulostus.kuvaus }" /></td>
+									<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
+									<td><c:out value="${tulostus.pvm }" /></td>
+
+									<td><a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
+										<form id="${formId }" action="${deleteUrl}" method="post">
+											<input id="poistettava" name="poistettava" type="hidden"
+												value="${tulostus.tuntiId}" />
+										</form>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
 </body>
 </html>
