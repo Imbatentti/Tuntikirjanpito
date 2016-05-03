@@ -84,15 +84,6 @@
 			<!--/.container-fluid -->
 		</nav>
 
-			<!--  <div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="../nayta/tulostus">Kaikki tunnit</a></li>
-					<li class="active"><a href="kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
-				</ul>
-			</div>
-			-->
-
-
 			<form action="TulostusServlet" method="get">
 				<h2>Kirjatut tunnit</h2>
 				<h3>Käyttäjä</h3>
@@ -105,14 +96,10 @@
 					<tr>
 					<th>Tunnit</th>
 						<th>Käyttäjä</th>
-						<!--  <th>Tunti ID</th> -->
 						<th>Kuvaus</th>
-						<!--  <th>Käyttäjän ID</th> -->
 						<th>Päivämäärä</th>
 						<th>Poisto</th>
 						<td>
-						
-						<!--  <th>Tunti ID</th> -->
 
 
 					</tr>
@@ -120,9 +107,7 @@
 						<tr>
 							<td><c:out value="${tulostus.tuntiMaara }" /></td>
 							<td><c:out value="${tulostus.kayttajatunnus }" /></td>
-							<!--   <td><c:out value="${tulostus.tuntiId }" /></td> -->
 							<td><c:out value="${tulostus.kuvaus }" /></td>
-							<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
 							<td><c:out value="${tulostus.pvm }" /></td>
 
 							<td><a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>

@@ -68,41 +68,18 @@
 								<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
 							</ul>
 						</div>
-							<div class="dropdown">
-								<button class="btn btn-primary dropdown-toggle" type="button"
-									data-toggle="dropdown">
-									Valitse käyttäjä <span class="caret"></span>
-								</button>
-								
-								<ul class="dropdown-menu">
-									<form:form modelAttribute="kayttajatulostus" method="post">
-										<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
-											<form:label path="kayttajatunnus">${kayttajatulostus.kayttajatunnus }</form:label>
-											<form:input type="submit" path="../nayta/kayttajaTulostus"></form:input>/>
-											<form:input type="hidden" path="kayttajatunnus" value="${kayttajatulostus.kayttajatunnus }"></form:input>/>
-										</c:forEach>
-									</form:form>
-								</ul>
-							</div>
 						<!--/.nav-collapse -->
 					</div>
 					<!--/.container-fluid -->
 				</nav>
-				
-				<!-- 
-				<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
-					<li><a type="submit" href="../nayta/kayttajaTulostus">${kayttajatulostus.kayttajatunnus }</a></li>
-					<input type="hidden" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
-				</c:forEach>
-				 -->
 
-				<!--  <div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="tulostus">Kaikki tunnit</a></li>
-							<li class="active"><a href="../nayta/kayttajaTulostus">Käyttäjäkohtaiset tunnit</a></li>
-						</ul>
-					</div>
-			-->
+				<form:form action="tulostusLista" modelAttribute="tulostus"
+					method="post">
+					<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+						<input type="hidden" id="kayttaja" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
+						<input type="submit" value="${kayttajatulostus.kayttajatunnus }" />
+					</c:forEach>
+				</form:form>
 
 				<form action="TulostusServlet" method="get">
 					<h2>Kirjatut tunnit</h2>
@@ -115,73 +92,31 @@
 						<c:out value="${kayttajatulostus.kayttajatunnus }" />
 					</c:forEach>
 
-			<form action="TulostusServlet" method="get">
-				<h2>Kirjatut tunnit</h2>
-				<table class="table table-striped">
-					<tr>
-						<th>Tuntien määrä</th>
-						<th>Käyttäjä</th>
-						<!--  <th>Tunti ID</th> -->
-						<th>Kuvaus</th>
-						<!--  <th>Käyttäjän ID</th> -->
-						<th>Päivämäärä</th>
-						<th>Poista</th>
-
-					</tr>
-					<c:forEach items="${tulostus}" var="tulostus">
-						<tr>
-							<td><c:out value="${tulostus.tuntiMaara }" /></td>
-							<td><c:out value="${tulostus.kayttajatunnus }" /></td>
-							<!--   <td><c:out value="${tulostus.tuntiId }" /></td> -->
-							<td><c:out value="${tulostus.kuvaus }" /></td>
-							<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
-							<td><c:out value="${tulostus.pvm }" /></td>
-
-							<td>
-								
-								<form:form action="poista" modelAttribute="poista" method="post">
-									
-									<input id="poistoId" name="poistoId" type="hidden"
-										value="${tulostus.tuntiId}" />
-										<button type="submit">Poista</button>
-
-								</form:form>
-								</td>
-						</tr>
-
-					</c:forEach>
-					<div class="table-responsive">
+						<h2>Kirjatut tunnit</h2>
 						<table class="table table-striped">
 							<tr>
-								<th>Tunnit</th>
+								<th>Tuntien määrä</th>
 								<th>Käyttäjä</th>
-								<!--  <th>Tunti ID</th> -->
 								<th>Kuvaus</th>
-								<!--  <th>Käyttäjän ID</th> -->
 								<th>Päivämäärä</th>
-								<th>Poisto</th>
+								<th>Poista</th>
 
 							</tr>
 							<c:forEach items="${tulostus}" var="tulostus">
 								<tr>
 									<td><c:out value="${tulostus.tuntiMaara }" /></td>
 									<td><c:out value="${tulostus.kayttajatunnus }" /></td>
-									<!--   <td><c:out value="${tulostus.tuntiId }" /></td> -->
 									<td><c:out value="${tulostus.kuvaus }" /></td>
-									<!--  <td><c:out value="${tulostus.kayttajaId }" /></td> -->
 									<td><c:out value="${tulostus.pvm }" /></td>
-
-									<td><a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
-										<form id="${formId }" action="${deleteUrl}" method="post">
-											<input id="poistettava" name="poistettava" type="hidden"
-												value="${tulostus.tuntiId}" />
-										</form>
+									<td><form:form action="poista" modelAttribute="poista" method="post">
+											<input id="poistoId" name="poistoId" type="hidden" value="${tulostus.tuntiId}" />
+											<button type="submit">Poista</button>
+									</form:form></td>
 								</tr>
+
 							</c:forEach>
 						</table>
-					</div>
 				</form>
-			</div>
-		</div>
+							
 </body>
 </html>

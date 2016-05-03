@@ -17,7 +17,7 @@ public interface KayttajaDAO {
 	
 	public abstract List<Tulostus> haeKaikki();
 	
-	public abstract List<Tulostus> haeKayttajanTunnit(KayttajaTulostus kayttajatulostus);
+	public abstract List<Tulostus> haeKayttajanTunnit(String kayttajatunnus);
 	
 	public abstract List<Projektisumma> haeProjektiSumma();
 	

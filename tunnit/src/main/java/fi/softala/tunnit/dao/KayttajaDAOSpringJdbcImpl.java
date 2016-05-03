@@ -72,7 +72,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		return tulostus;
 	}
 	
-	public List<Tulostus> haeKayttajanTunnit(KayttajaTulostus kayttajatulostus) {
+	public List<Tulostus> haeKayttajanTunnit(String kayttajatunnus) {
 		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus='?';";
 		RowMapper<Tulostus> mapper = new TulostusRowMapper();
 		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
@@ -112,9 +112,9 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	public List<KayttajaTulostus> haeKayttajat() {
 		String sql ="select kayttajatunnus from KAYTTAJAT;";
 		RowMapper<KayttajaTulostus> mapper = new KayttajaTulostusRowMapper();
-		List<KayttajaTulostus> kayttajat = jdbcTemplate.query(sql, mapper);
+		List<KayttajaTulostus> kayttajatulostus = jdbcTemplate.query(sql, mapper);
 		
-		return kayttajat;
+		return kayttajatulostus;
 	}
 
 

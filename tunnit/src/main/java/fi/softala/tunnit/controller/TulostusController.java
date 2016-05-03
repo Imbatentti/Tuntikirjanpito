@@ -36,6 +36,7 @@ public class TulostusController {
 	@RequestMapping(value="kayttajaTulostus", method=RequestMethod.GET)
 	public String getKayttajatulostus(Model model) {
 		//List<Projektisumma> kayttajatunnit = dao.haeKayttajaSumma();
+
 		//List<Tulostus> tulostus = dao.haeKayttajanTunnit();
 		List<KayttajaTulostus> kayttajatulostus = dao.haeKayttajat();
 		model.addAttribute("kayttajatulostus", kayttajatulostus);
@@ -46,10 +47,15 @@ public class TulostusController {
 	}
 	
 	//KÄYTTÄJÄN VALITSEMINEN
-	@RequestMapping(value="tulostus", method=RequestMethod.POST)
-	public String create ( @ModelAttribute(value="kayttajatulostus") KayttajaTulostus kayttajatulostus){
-		dao.haeKayttajanTunnit(kayttajatulostus);
-		return "/sisalto/kayttajaTulostus";
+	@RequestMapping(value="tulostusLista", method=RequestMethod.POST)
+	public String getTulostus( @ModelAttribute(value="kayttaja") KayttajaTulostus kayttaja, Model model){
+		System.out.println(kayttaja.getKayttajatunnus()); //!!!!!!!!
+		String kayttajatunnus = kayttaja.getKayttajatunnus();
+		System.out.println(kayttajatunnus);
+		List<Tulostus> tulostus = dao.haeKayttajanTunnit(kayttajatunnus); //sisältö, myös DAOT
+		System.out.println("tulostus" +tulostus.size());
+		model.addAttribute("tulostus", tulostus);
+		return "redirect:kayttajaTulostus";
 	}
 	
 	
@@ -59,9 +65,9 @@ public class TulostusController {
 		List<Tulostus> tulostus = dao.haeKaikki();
 		List<Projektisumma> projektiSumma =dao.haeProjektiSumma();
 		List<KayttajaTulostus> kayttajatulostus = dao.haeKayttajat();
-		model.addAttribute("kayttajatulostus", kayttajatulostus);
 		model.addAttribute("tulostus", tulostus);
 		model.addAttribute("projektiSumma", projektiSumma);
+		model.addAttribute("kayttajatulostus", kayttajatulostus);
 
 		return "/sisalto/tulostus";
 	}
