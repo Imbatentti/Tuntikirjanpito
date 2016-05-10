@@ -3,11 +3,10 @@
 <%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <!DOCTYPE html>
-<html lang="fi">
+<html>
 <head>
-<meta name="description" content="Tuntien syöttö lomake">
+<meta name="description" content="Tulostussivu">
 <meta name="author" content="Team Blue / Softala 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset=UTF-8>
@@ -17,12 +16,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link href="css/tyyli.css" rel="stylesheet">
-<title>Tuntien syöttö lomake</title>
+<link rel="stylesheet" type="text/css"
+	href="../resources/styles/tyyli.css">
+<title>Tuntien näyttö</title>
 </head>
-
 <body>
-
 	<div class="container">
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
@@ -34,7 +32,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="uusitunti">Tuntikirjanpito</a>
+					<a class="navbar-brand" href="../sisalto/uusitunti">Tuntikirjanpito</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
@@ -48,12 +46,18 @@
 			</div>
 			<!--/.container-fluid -->
 		</nav>
-	</div>
-			
-		
+
 
 		<div class="jumbotron">
-			<form:form modelAttribute="tunnit" method="post">
+
+
+			
+					<!--/.container-fluid -->
+				</nav>
+
+				
+
+				<form:form modelAttribute="tunnit" method="post">
 				<fieldset>
 					<legend>Syötä tunnit</legend>
 					<p>
@@ -76,7 +80,6 @@
 					</p>
 				</fieldset>
 			</form:form>
-		</div>
+							
 </body>
-
 </html>
