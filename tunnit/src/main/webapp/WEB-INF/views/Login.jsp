@@ -25,10 +25,10 @@
      			<table>
      				<tr><td>Käyttäjätunnus:</td><td><input type='text' name='j_username' value=''></td></tr>
      				<tr><td>Salasana:</td><td><input type='password' name='j_password' /></td></tr>
-     				
+     				<!--  
      				<form:form modelAttribute="sessio" method="get">
      					<input id="j_username" name="j_username" type="hidden" value=""
-     				</form:form>
+     				</form:form> -->
      				
      				<tr><td>&nbsp;</td><td><button type="submit">Kirjaudu</button></td></tr>
      			</table>

@@ -52,7 +52,6 @@
 
 	<sec:http auto-config="true" use-expressions="true">
 
-		<sec:intercept-url pattern="/sisalto/admin/**" access="hasRole('admin')" />
 		<sec:intercept-url pattern="/sisalto/*" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/*" access="permitAll" />
 

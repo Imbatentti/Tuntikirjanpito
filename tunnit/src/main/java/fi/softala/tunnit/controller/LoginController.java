@@ -20,26 +20,14 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes("j_username")
 public class LoginController {
 	
-	@RequestMapping(value="sessio", method = RequestMethod.GET)
-	public ModelAndView tallennaSessio(@RequestParam String j_username){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("j_username", j_username);
-		mav.setViewName(j_username);
-		System.out.println(j_username);
-		
-		return mav;
+	
+	@RequestMapping(value="/loginpage", method = RequestMethod.GET)
+	public String login(Model model) {
+		System.out.println("login");
+		return "login";
+ 
 	}
-	/*
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public ModelAndView kayttajatunnus(@RequestParam String j_username){
-		System.out.println("session metodi");
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("ktunnus", j_username);
-		mav.setViewName("Login");
-		System.out.println("username: "+j_username);
-		return mav;
-	} 
-	*/
+	
 	@RequestMapping(value="/loginfail", method = RequestMethod.GET)
 	public String loginerror(Model model) {
 		System.out.println("loginfail");
