@@ -42,13 +42,11 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="uusitunti">Tuntien kirjaus</a></li>
 						<li><a href="../nayta/tulostus">Näytä tunnit</a></li>
-
-						<li><a href="#">Lisää jotain</a></li>
-						<!--<li><a href="#">Kirjaudu ulos</a></li>-->
-
 						<li><a href="<c:url value="/logout" />">Logout</a></li>
 						<strong>
-							<li><sec:authentication property="principal.username" /></li>
+							<li>
+								<sec:authentication property="principal.username" />
+							</li>
 						</strong>
 					</ul>
 				</div>
