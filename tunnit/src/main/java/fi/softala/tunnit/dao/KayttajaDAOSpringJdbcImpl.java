@@ -73,7 +73,6 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public List<Tulostus> haeKayttajanTunnit(String kayttajatunnus) {
-		System.out.println("daos" + kayttajatunnus);
 		String sql = "select tunti_id,tuntien_maara,paivamaara,kuvaus,kayttaja_id,kayttajatunnus from TUNNIT where kayttajatunnus='"+ kayttajatunnus+"';";
 		RowMapper<Tulostus> mapper = new TulostusRowMapper();
 		List<Tulostus> tulostus = jdbcTemplate.query(sql, mapper);
@@ -93,13 +92,9 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
     }
 
 	public List<Projektisumma> haeKayttajaSumma(String kayttajatunnus) {
-		//käyttäjätunnus sessiosta alunperin, muuten valittavissa
-		System.out.println("kayttajasumma" + kayttajatunnus);
 		String sql = "select SUM(tuntien_maara) from TUNNIT where kayttajatunnus='"+kayttajatunnus+"';";
 		RowMapper<Projektisumma> mapper = new TuntiMaaraRowMapper();
 		List<Projektisumma> kayttajasumma = jdbcTemplate.query(sql, mapper);
-		System.out.println("kayttajasummasql"+sql);
-		System.out.println(kayttajasumma);
 		
 		return kayttajasumma;
 	}

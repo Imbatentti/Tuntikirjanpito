@@ -93,8 +93,6 @@
 						<td>Tunnit yhteensä: <c:out
 								value="${projektiSumma.kaikkiTunnit }" /></td>
 					</c:forEach>
-
-						<h2>Kirjatut tunnit</h2>
 						<table class="table table-striped">
 							<tr>
 								<th>Tuntien määrä</th>

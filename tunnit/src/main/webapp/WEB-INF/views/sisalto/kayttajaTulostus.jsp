@@ -79,11 +79,6 @@
 						<td>Tunnit yhteensä: <c:out
 								value="${kayttajasumma.kaikkiTunnit }" /></td>
 					</c:forEach>
-				<h3>Käyttäjä</h3>
-						<c:forEach items="${kayttajatunnit}" var="kayttajatunnit">
-							<td>Tunnit yhteensä: <c:out
-									value="${kayttajatunnit.kaikkiTunnit }" /></td>
-						</c:forEach>
 				<div class="table-responsive">
 				<table class="table table-striped">
 					<tr>
