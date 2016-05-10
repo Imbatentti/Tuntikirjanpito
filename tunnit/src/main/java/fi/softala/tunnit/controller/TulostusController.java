@@ -35,15 +35,8 @@ public class TulostusController {
 	//KÄYTTÄJIEN TULOSTUS
 	@RequestMapping(value="kayttajaTulostus", method=RequestMethod.GET)
 	public String getKayttajatulostus(Model model) {
-		//List<Projektisumma> kayttajatunnit = dao.haeKayttajaSumma();
-
-		//List<Tulostus> tulostus = dao.haeKayttajanTunnit();
-		System.out.println("haeKayttajat");
 		List<KayttajaTulostus> kayttajatulostus = dao.haeKayttajat();
 		model.addAttribute("kayttajatulostus", kayttajatulostus);
-		//model.addAttribute("kayttajatunnit", kayttajatunnit);
-		//model.addAttribute("tulostus", tulostus);
-
 		return "/sisalto/kayttajaTulostus";
 	}
 	
@@ -60,8 +53,7 @@ public class TulostusController {
 	//VALITUN KÄYTTÄJÄN TUNNIT
 		@RequestMapping(value="tulostusLista", method=RequestMethod.GET)
 		public String getKayttajaTulostus(@ModelAttribute(value="tulostus") List<Tulostus> tulostus,
-				@ModelAttribute(value="kayttajasumma") Projektisumma kayttajasumma, Model model){
-			System.out.println("kayttajatulostuscontrol");
+			@ModelAttribute(value="kayttajasumma") Projektisumma kayttajasumma, Model model){
 			model.addAttribute("kayttajasumma",kayttajasumma);
 			model.addAttribute("tulostus", tulostus);
 			

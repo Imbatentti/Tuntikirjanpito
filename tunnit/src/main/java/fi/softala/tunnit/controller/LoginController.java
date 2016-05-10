@@ -19,14 +19,12 @@ public class LoginController {
 	
 	@RequestMapping(value="/loginpage", method = RequestMethod.GET)
 	public String login(Model model) {
-		System.out.println("login");
 		return "Login";
  
 	}
 	
 	@RequestMapping(value="/loginfail", method = RequestMethod.GET)
 	public String loginerror(Model model) {
-		System.out.println("loginfail");
 		model.addAttribute("loginerror", "true");
 		return "Login";
 	}
@@ -35,10 +33,8 @@ public class LoginController {
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    if (auth != null){
-	    	System.out.println(auth);
 	        new SecurityContextLogoutHandler().logout(request, response, auth);
 	    }
-	    System.out.println(auth);
 	    return "Login";
 	}
 	

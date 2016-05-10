@@ -53,14 +53,11 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public void poista(Poistettava poistoId){
-		
-		System.out.println("Daossa "+ poistoId);
+
 		int poistettava = Integer.parseInt(poistoId.getPoistoId());
 		String deleteSql = "delete from TUNNIT where tunti_id =(?);";
-		
 		Object[] parametrit = new Object[] {poistettava};
 		jdbcTemplate.update(deleteSql, parametrit);
-		
 		
 	}
 	
@@ -84,7 +81,6 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
         
         StandardPasswordEncoder spe = new StandardPasswordEncoder();    
         String salasanaKryptattuna = spe.encode(kayttaja.getSalasana());
-        
         String sql = "insert into KAYTTAJAT (kayttajatunnus, email, etunimi, sukunimi, salasana) values(?,?,?,?,?);";
         Object[] parametrit = new Object[] { kayttaja.getKayttajatunnus(), kayttaja.getEmail(), kayttaja.getEtunimi(), kayttaja.getSukunimi(), salasanaKryptattuna};
         
@@ -116,6 +112,4 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 		return kayttajatulostus;
 	}
-
-
 }
