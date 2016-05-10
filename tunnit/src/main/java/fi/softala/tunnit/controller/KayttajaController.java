@@ -31,8 +31,8 @@ public class KayttajaController {
 	@RequestMapping(value="uusitunti", method=RequestMethod.GET)
 	public String getCreateForm(Model model){
 		Tunnit uudetTunnit =  new Tunnit();
-		System.out.println("tulostus");
-		System.out.println("Controller");
+		
+		System.out.println("KayttajaController");
 		model.addAttribute("tunnit", uudetTunnit);
 		return "sisalto/lomake";
 	}

@@ -21,7 +21,7 @@ public interface KayttajaDAO {
 	
 	public abstract List<Projektisumma> haeProjektiSumma();
 	
-	public abstract List<Projektisumma> haeKayttajaSumma(KayttajaTulostus kayttajatulostus);
+	public abstract List<Projektisumma> haeKayttajaSumma(String kayttajatunnus);
 
 	public abstract void poista(Poistettava poistoId);
 	

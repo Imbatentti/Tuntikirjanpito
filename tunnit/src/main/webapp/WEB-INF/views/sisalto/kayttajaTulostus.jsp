@@ -68,24 +68,17 @@
 					</ul>
 						
 				</div>
-				<div class="dropdown">
-						 	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Valitse käyttäjä
-						 		<span class="caret"></span>
-						 	</button>
-						 		<ul class="dropdown-menu">
-						 			<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
-						   				<li><a href="kayttajaTulostus">${kayttajatulostus.kayttajatunnus }</a></li>
-						   				<input type="hidden" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
-						    		</c:forEach>
-						  		</ul>
-						</div>
 				<!--/.nav-collapse -->
 			</div>
 			<!--/.container-fluid -->
 		</nav>
 
-			<form action="TulostusServlet" method="get">
+			<form action="tulostusLista" method="get">
 				<h2>Kirjatut tunnit</h2>
+				<c:forEach items="${kayttajasumma}" var="kayttajasumma">
+						<td>Tunnit yhteensä: <c:out
+								value="${kayttajasumma.kaikkiTunnit }" /></td>
+					</c:forEach>
 				<h3>Käyttäjä</h3>
 						<c:forEach items="${kayttajatunnit}" var="kayttajatunnit">
 							<td>Tunnit yhteensä: <c:out
@@ -110,21 +103,12 @@
 							<td><c:out value="${tulostus.kuvaus }" /></td>
 							<td><c:out value="${tulostus.pvm }" /></td>
 
-							<td><a href="<c:url var="deleteUrl" value="/tulostus"/>">Poista</a>
-								<form id="${formId }" action="${deleteUrl}" method="post">
-									<input id="poistettava" name="poistettava" type="hidden"
-										value="${tulostus.tuntiId}" />
-								</form>
+							<td><form:form action="poista" modelAttribute="poista" method="post">
+											<input id="poistoId" name="poistoId" type="hidden" value="${tulostus.tuntiId}" />
+											<button type="submit">Poista</button>
+									</form:form></td>
 						</tr>
 					</c:forEach>
-					<!--  
-					<c:forEach items="${kayttajaTulostus}" var="kayttajaTulostus">
-						<tr>							
-							<td><c:out value="${kayttajaTulostus.kayttajatunnus }" /></td>
-							<td><c:out value="${kayttajaTulostus.tuntiMaara }" /></td>
-						</tr>
-					</c:forEach>
-					-->
 				</table>
 				</div>
 			</form>

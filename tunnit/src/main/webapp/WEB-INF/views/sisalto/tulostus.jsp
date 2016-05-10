@@ -75,10 +75,16 @@
 
 				<form:form action="tulostusLista" modelAttribute="tulostus"
 					method="post">
-					<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
-						<input type="hidden" id="kayttaja" name="kayttaja" value="${kayttajatulostus.kayttajatunnus }">
-						<input type="submit" value="${kayttajatulostus.kayttajatunnus }" />
-					</c:forEach>
+					<td>Katso käyttäjän tunnit:
+						<select name="kayttaja">
+							<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
+								<option>
+									<c:out value="${kayttajatulostus.kayttajatunnus }"/>
+								</option>
+							</c:forEach>
+						</select>
+						<td><input type="submit" value="Hae">
+		
 				</form:form>
 
 				<form action="TulostusServlet" method="get">
@@ -86,10 +92,6 @@
 					<c:forEach items="${projektiSumma}" var="projektiSumma">
 						<td>Tunnit yhteensä: <c:out
 								value="${projektiSumma.kaikkiTunnit }" /></td>
-					</c:forEach>
-
-					<c:forEach items="${kayttajatulostus}" var="kayttajatulostus">
-						<c:out value="${kayttajatulostus.kayttajatunnus }" />
 					</c:forEach>
 
 						<h2>Kirjatut tunnit</h2>
