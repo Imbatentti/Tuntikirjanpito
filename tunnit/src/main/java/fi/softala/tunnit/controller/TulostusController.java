@@ -85,12 +85,8 @@ public class TulostusController {
 	
 	//TUNNIN POISTO
 	@RequestMapping(value="poista", method=RequestMethod.POST)
-	public String removeAd(@ModelAttribute(value="poistoId") Poistettava poistoId) {
-		System.out.println("tulostus controllerissa");
-		System.out.println(poistoId);
-		
+	public String removeAd(@ModelAttribute(value="poistoId") Poistettava poistoId) {		
 		dao.poista(poistoId);
-		
 		return "redirect:tulostus";
 	}
 }

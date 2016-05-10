@@ -3,6 +3,10 @@
 <%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,8 +42,14 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="uusitunti">Tuntien kirjaus</a></li>
 						<li><a href="../nayta/tulostus">Näytä tunnit</a></li>
+
 						<li><a href="#">Lisää jotain</a></li>
 						<!--<li><a href="#">Kirjaudu ulos</a></li>-->
+
+						<li><a href="<c:url value="/logout" />">Logout</a></li>
+						<strong>
+							<li><sec:authentication property="principal.username" /></li>
+						</strong>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -50,15 +60,17 @@
 
 		<div class="jumbotron">
 
+			<!--/.container-fluid -->
 
-			
-					<!--/.container-fluid -->
-				</nav>
 
-				
 
-				<form:form modelAttribute="tunnit" method="post">
+			<form:form modelAttribute="tunnit" method="post">
 				<fieldset>
+					<legend>
+						Hei
+						<sec:authentication property="principal.username" />
+						!
+					</legend>
 					<legend>Syötä tunnit</legend>
 					<p>
 						<form:label path="nimi">Nimi</form:label>
@@ -80,6 +92,8 @@
 					</p>
 				</fieldset>
 			</form:form>
-							
+
+		</div>
+	</div>
 </body>
 </html>

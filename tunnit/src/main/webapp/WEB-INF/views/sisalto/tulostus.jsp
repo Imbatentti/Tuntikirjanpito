@@ -3,6 +3,7 @@
 <%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +41,8 @@
 						<li class="active"><a href="tulostus">Näytä tunnit</a></li>
 						<li><a href="#">Lisää jotain</a></li>
 						<!--<li><a href="#">Kirjaudu ulos</a></li>-->
+						<li><a href="<c:url value="/logout" />">Logout</a></li>
+						<li><a> <sec:authentication property="principal.username"/></a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
