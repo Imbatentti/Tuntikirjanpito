@@ -41,7 +41,11 @@
 						<li class="active"><a href="uusitunti">Tuntien kirjaus</a></li>
 						<li><a href="../nayta/tulostus">Näytä tunnit</a></li>
 						<li><a href="<c:url value="/logout" />">Logout</a></li>
-						<sec:authentication property="principal.username"/>
+						<strong>
+							<li>
+								<sec:authentication property="principal.username"/>
+							</li>
+						</strong>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -52,6 +56,7 @@
 		<div class="jumbotron">
 			<form:form modelAttribute="tunnit" method="post">
 				<fieldset>
+					<legend>Hei <sec:authentication property="principal.username"/>!</legend>
 					<legend>Syötä tunnit</legend>
 					<p>
 						<form:label path="nimi">Nimi</form:label>
