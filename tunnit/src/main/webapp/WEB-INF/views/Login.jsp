@@ -40,6 +40,32 @@
      				<tr><td>Salasana:</td><td><input type='password' name='j_password' /></td></tr>	
      				<tr><td>&nbsp;</td><td><button type="submit">Kirjaudu</button></td></tr>
      			</table>
+     			<table class="table table-striped">
+     				<tr>
+						<th>Käyttäjätunnus</th>
+						<th>Salasana</th>
+					</tr>
+					<tr>
+     					<td>Raikka</td>
+     					<td>tunnit1</td>
+     				</tr>
+     				<tr>
+     					<td>Juha</td>
+     					<td>tunnit2</td>
+     				</tr>
+     				<tr>
+     					<td>Jani</td>
+     					<td>tunnit3</td>
+     				</tr>
+     				<tr>
+     					<td>Joni</td>
+     					<td>tunnit4</td>
+     				</tr>
+     				<tr>
+     					<td>Testi</td>
+     					<td>testimies</td>
+     				</tr>
+     			</table>
      		</fieldset>
      	</form>
 		</div>
